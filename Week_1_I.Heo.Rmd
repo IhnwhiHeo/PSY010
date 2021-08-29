@@ -1,0 +1,31 @@
+---
+title: "Analysis of Psychological Data"
+subtitle: "<br/>Lab Week 1"
+author: "Ihnwhi Heo<br>iheo2@ucmerced.edu"
+institute: "Quantitative Methods, Measurement, and Statistics<br>Department of Psychological Sciences"
+date: "September 3, 2021"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, default-fonts, merced.css]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: center, middle, title-slide
+      ratio: "16:9"
+---
+
+# Who am I?
+
+## Ihnwhi Heo, M.Sc.
+
+### Background in
+- Methodology and Statistics
+- Psychology (Quantitative/Social)
+
+### Responsible for
+- Lab sessions 11L & 12L
+- Office hours Fri 1:30 - 3:30 pm
+
+---
