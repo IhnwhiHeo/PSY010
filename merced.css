@@ -118,11 +118,6 @@ th, td { padding: 5px; }
   line-height: 1;
 }
 
-/* Remove slide count */
-.title-slide .remark-slide-number {
-  text-shadow: none;
-}
-
 /*~~~~~~~~~~~~~~~~~~*/
 /* SECTION DIVIDERS */
 /*~~~~~~~~~~~~~~~~~~*/
