@@ -76,9 +76,9 @@ th, td { padding: 5px; }
 
 /* Add image and change bg color */
 .title-slide {
-  background-image: url(https://github.com/IhnwhiHeo/PSY010/blob/master/ucm-logo.png);
+  background-image: url(https://raw.githubusercontent.com/IhnwhiHeo/PSY010/master/ucm-logo.png);
   background-position: 9% 15%;
-  background-size: 55px;
+  background-size: 150px;
   background-color: #fff;
   padding-left: 100px;  /* delete this for 4:3 aspect ratio */
 }
@@ -98,7 +98,7 @@ th, td { padding: 5px; }
 
 /* H2 fonts */
 .title-slide h2 {
-  color: #cc0033;
+  color: #142e52;
   font-size: 35px;
   text-align: left;
   text-shadow: none;
@@ -122,14 +122,14 @@ th, td { padding: 5px; }
 /* SECTION DIVIDERS */
 /*~~~~~~~~~~~~~~~~~~*/
 
-/* section divider red */
-.title-slide-section-red {
-  background-color: #cc0033;
+/* section divider navy */
+.title-slide-section-navy {
+  background-color: #142e52;
   padding-left: 100px;  /* delete this for 4:3 aspect ratio */
 }
 
-/* section divider red H1 fonts */
-.title-slide-section-red h1, .title-slide-section-red h2, .title-slide-section-red h3, .title-slide-section-red p {
+/* section divider navy H1 fonts */
+.title-slide-section-navy h1, .title-slide-section-navy h2, .title-slide-section-navy h3, .title-slide-section-navy p {
   color: #fff;
 }
 
@@ -161,7 +161,7 @@ th, td { padding: 5px; }
 }
 
 .title-slide-final h1 {
-  color: #cc0033;
+  color: #142e52;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~*/
@@ -175,13 +175,13 @@ th, td { padding: 5px; }
 
 /* Color adjustments for text */
 
-/* Make bold syntax compile to RU-red */
+/* Make bold syntax compile to ucm-navy */
 strong {
-  color: #cc0033;
+  color: #142e52;
 }
 
-.RUred {
-  color: #cc0033;
+.ucmnavy {
+  color: #142e52;
 }
 
 /* Add blue tag */
@@ -212,7 +212,7 @@ strong {
 
 /* Color adjustments to headers */
 h1 {
-  color: #cc0033;
+  color: #142e52;
 }
 
 h3 {
@@ -224,14 +224,14 @@ h3 {
   font-size: 1.5em;
 }
 
-/* ru blockquote */
-ru-blockquote {
+/* ucm blockquote */
+ucm-blockquote {
   display: block;
   margin-top: 1em;
   margin-bottom: 1em;
   margin-left: 40px;
   margin-right: 40px;
-  border-left: solid 10px #cc0033;
+  border-left: solid 10px #142e52;
   background-color: #818181;
   padding: 1em;
   color: #fff;
