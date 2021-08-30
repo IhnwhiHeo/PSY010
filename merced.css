@@ -102,7 +102,7 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 
 /* Add image and change bg color */
 .title-slide {
-  background-image: url(https://raw.githubusercontent.com/IhnwhiHeo/PSY010/master/img/ucm-logo.png);
+  background-image: url(img/ucm-logo.png);
   background-position: 9% 18%;
   background-size: 170px;
   background-color: #fff;
@@ -112,7 +112,7 @@ thead, tfoot, tr:nth-child(even) { background: none; }
 /* Other normal slides */
 
 .remark-slide-content:not(.title-slide){
-  background-image: url(ucm-background.png);
+  background-image: url(img/ucm-background.png);
   background-size: cover;
   padding-left: 100px;
 }
