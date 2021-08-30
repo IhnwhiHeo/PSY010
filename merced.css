@@ -1,66 +1,92 @@
 a, a > code {
-  color: rgb(249, 38, 114);
+  color: #cc0033; /* rgb(249, 38, 114) */
   text-decoration: none;
 }
+
+/* slightly lower and bigger than default */
 .footnote {
   position: absolute;
-  bottom: 3em;
+  bottom: 1em;
   padding-right: 4em;
   font-size: 95%;
 }
-.remark-code-line-highlighted     { background-color: #ffff88; }
 
+/* important code slightly red */
+.remark-code-line-highlighted {
+  background-color: #FFD3DE !important;
+}
+
+/* color tweak */
 .inverse {
   background-color: #272822;
-  color: #d6d6d6;
+  color: #777872;
   text-shadow: 0 0 20px #333;
 }
+
+/* slightly spacing change */
 .inverse h1, .inverse h2, .inverse h3 {
   color: #f3f3f3;
   line-height: 1.0em;
 }
-/* Two-column layout */
+
+/* Two-column layout (slightly wider for aspect ration) */
 .left-column {
   color: #777;
-  width: 23%;
+  width: 25%;
   height: 92%;
   float: left;
 }
+
 .left-column h2:last-of-type, .left-column h3:last-child {
   color: #000;
 }
+
+/* slightly thiner to suppor aspect ration */
 .right-column {
-  width: 75%;
+  width: 70%;
   float: right;
   padding-top: 1em;
 }
+
 .pull-left {
   float: left;
-  width: 47%;
+  width: 45%;
 }
+
 .pull-right {
   float: right;
-  width: 47%;
+  width: 45%;
 }
-.pull-right + * {
+
+.pull-right ~ * {
   clear: both;
 }
+
 img, video, iframe {
   max-width: 100%;
 }
+
 blockquote {
   border-left: solid 5px lightgray;
   padding-left: 1em;
 }
-.remark-slide table {
-  margin: auto;
-  border-top: 1px solid #666;
-  border-bottom: 1px solid #666;
-}
-.remark-slide table thead th { border-bottom: 1px solid #ddd; }
-th, td { padding: 5px; }
-.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: #eee }
 
+/* adjust table horizontal spacing */
+th, td {
+    padding:0 15px 0 15px;
+}
+
+/* remove color from tables */
+table {
+  margin: auto;
+  border-top: none;
+  border-bottom: none;
+}
+
+table thead th { border-bottom: none; }
+thead, tfoot, tr:nth-child(even) { background: none; }
+
+/* leave this alone */
 @page { margin: 0; }
 @media print {
   .remark-slide-scaler {
@@ -76,11 +102,19 @@ th, td { padding: 5px; }
 
 /* Add image and change bg color */
 .title-slide {
-  background-image: url(https://raw.githubusercontent.com/IhnwhiHeo/PSY010/master/ucm-logo.png);
-  background-position: 9% 15%;
-  background-size: 150px;
+  background-image: url(https://raw.githubusercontent.com/IhnwhiHeo/PSY010/master/img/ucm-logo.png);
+  background-position: 9% 18%;
+  background-size: 170px;
   background-color: #fff;
   padding-left: 100px;  /* delete this for 4:3 aspect ratio */
+}
+
+/* Other normal slides */
+
+.remark-slide-content:not(.title-slide){
+  background-image: url(ucm-background.png);
+  background-size: cover;
+  padding-left: 100px;
 }
 
 /* H1 fonts */
@@ -110,7 +144,7 @@ th, td { padding: 5px; }
 .title-slide h3 {
   font-size: 28px;
   font-weight: normal;
-  color: #666666;
+  color: #000000;
   text-align: left;
   text-shadow: none;
   padding: 0px;
@@ -216,7 +250,7 @@ h1 {
 }
 
 h3 {
-  color: #515151;
+  color: #000000;
 }
 
 /* Font size tags */
@@ -232,7 +266,7 @@ ucm-blockquote {
   margin-left: 40px;
   margin-right: 40px;
   border-left: solid 10px #142e52;
-  background-color: #818181;
+  background-color: #000000;
   padding: 1em;
   color: #fff;
   -moz-border-radius: 5px;
