@@ -173,7 +173,7 @@ Extraversion and introversion
 
 ## All lecture materials are available at
 
-https://github.com/IhnwhiHeo/PSY010/tree/master/2021-Fall
+https://github.com/IhnwhiHeo/PSY010
 
 ---
 
