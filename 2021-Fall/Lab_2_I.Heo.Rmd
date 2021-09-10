@@ -531,7 +531,7 @@ Ari has been working as a data scientist at Regal. Since Shang-Chi and the Legen
 - How does the distribution look like? Normally distributed, negatively skewed, or positively skewed?
 - What are the mean, the median, and the mode of the sample? Feel free to use a calculator, if necessary.
 - Can you calculate the population mean?
-- Imagine Ari receives one response from a person who is very disappointed with the movie. If that person gives a score of 0, how do the mean, the median, and the mode would change?
+- Imagine Ari receives one response from a person who is very disappointed with the movie. If that person gives a score of 0, how do the mean, the median, and the mode change?
 
 ---
 
