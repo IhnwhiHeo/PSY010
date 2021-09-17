@@ -263,7 +263,7 @@ The $n^{th}$ percentile means that $n\%$ of the population data lie below that p
 1. Find the decimal places of the z-score
 2. Find the corresponding percentile
 
-## Never forget to print the Z-table for your exame :)
+## Never forget to print the Z-table for your exam :)
 
 ---
 
@@ -313,8 +313,9 @@ Makram is interested in programming, so he took two programming courses in R and
 - What is the percentile of his score in the R programming course?
 - What is the percentage of students who did better than Makram in the Python programming course?
 - What course did Makram showed a better achievement relative to his classmates?
-- Say Ihnwhi also took the R programming course, and his z-score is 0.5.
+- Say Ihnwhi also took the R programming course, and his z-score is -0.25.
     - What would be Ihnwhi's raw score?
+    - What is the percentage of students who did worse than Ihnwhi?
     - What is the percentage of students who scored between Makram and Ihnwhi?
 
 ---
