@@ -294,7 +294,7 @@ Stephen, a statistician at the United States Air Force, has collected the data o
 </center>
 
 ## Can you answer below?
-- What is $\Sigma_{1}^{10}X_{i}$ (assuming $X$ refers to the score variable)?
+- What is $\Sigma_{i=1}^{10}X_{i}$ (assuming $X$ refers to the score variable)?
 - What are the mean, the median, and the mode?
 - What are the range, the sum of squares, the variance, and the standard deviation?
 - What is the relative frequency of the score 25?
@@ -306,14 +306,13 @@ Stephen, a statistician at the United States Air Force, has collected the data o
 
 ## Case 2
 
-Makram is interested in programming, so he took two programming courses in R and Python, respectively. His achievement was excellent, but he is curious to compare his performances. In the R programming course, he scored 125 where the mean and the standard deviation are 80 and 18. In the Python programming course, he scored 92 where the mean and the standard deviation are 72 and 10.
+Makram is interested in programming, so he took two programming courses in R and Python. His achievement was excellent, but he is curious to compare his performances. In the R programming course, he scored 125 where the mean and the standard deviation are 80 and 18. In the Python programming course, he scored 92 where the mean and the standard deviation are 72 and 10. Assume that all scores are normally distributed.
 
 ## Can you answer below?
-- What are the z-scores in each programming course?
-- What is the percentile of his score in the R programming course?
+- What are the z-scores in each programming course? Can you interpret them?
 - What is the percentage of students who did better than Makram in the Python programming course?
 - What course did Makram showed a better achievement relative to his classmates?
-- Say Ihnwhi also took the R programming course, and his z-score is -0.25.
+- Say Ihnwhi also took the same R programming course, and his z-score is -0.25.
     - What would be Ihnwhi's raw score?
     - What is the percentage of students who did worse than Ihnwhi?
     - What is the percentage of students who scored between Makram and Ihnwhi?
