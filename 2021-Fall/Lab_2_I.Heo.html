@@ -4,7 +4,7 @@
     <title>Analysis of Psychological Data</title>
     <meta charset="utf-8" />
     <meta name="author" content="Ihnwhi Heo (iheo2@ucmerced.edu)" />
-    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="merced.css" type="text/css" />
   </head>
@@ -165,14 +165,12 @@ barplot(counts, main="Car Distribution",
 ## You can even stack the bars!
 
 ```r
-# Stacked Bar Plot with Colors and Legend
-counts &lt;- table(mtcars$vs, mtcars$gear)
-barplot(counts,
-  main="Car Distribution by Gears and Engines",
-  xlab="Number of Gears",
-  col=c("darkblue","darkgreen"),
-  legend = rownames(counts))
+set.seed(322) # Replicability
+dat &lt;- rbeta(10000, 3, 25) # Data simulation
+hist(dat) # Plot a histogranm
 ```
+
+## The mean: 0.107
 ]
 
 .pull-right[

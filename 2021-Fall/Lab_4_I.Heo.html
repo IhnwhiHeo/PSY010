@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Analysis of Psychological Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ihnwhi Heo (iheo2@ucmerced.edu)" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="merced.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide, title-slide
+
+# Analysis of Psychological Data
+## <br/>Lab 4. Warming Up for Statistical Inference: Probability and Central Limit Theorem
+### Ihnwhi Heo (<a href="mailto:iheo2@ucmerced.edu" class="email">iheo2@ucmerced.edu</a>)
+### Quantitative Methods, Measurement, and Statistics<br>Website: <a href="https://ihnwhiheo.github.io" class="uri">https://ihnwhiheo.github.io</a><br>Office: <a href="https://ucmerced.zoom.us/j/2093557522" class="uri">https://ucmerced.zoom.us/j/2093557522</a> (Friday 1:30 - 3:30 pm)
+
+---
+
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### Probability
+
+### Central limit theorem
+
+## Group activity
+
+---
+
+# Prelude
+
+## For those who start inferential statistics (*a.k.a.* statistical inference)
+
+### Logic is crucial, so do not hesitate to ask me questions if anything is unclear!
+
+### Let's prove ourselves against this grumpy cat!
+
+&lt;center&gt;
+&lt;img src="img/psystatmeme.jpeg" width=400&gt;
+&lt;/center&gt;
+
+---
+
+# Prelude
+
+## We now do inferential statistics
+
+### Statistical inference
+
+Idea 1: Let's make a best guess and test if that guess is true `\(\rightarrow\)` Estimation (point and interval) and hypothesis testing
+
+Idea 2: Let's assume we have one sample statistic of interest (e.g., sample mean) and the distribution of all the possible sample statistics `\(\rightarrow\)` Central limit theorem, sampling distribution, sampling error, and standard error
+
+### Statement of probability
+
+We speak of statistical inference in the statement of probability
+&lt;/br&gt;
+(e.g., Hypothesis testing: what is the probability of obtaining a result that is as extreme as the one we have observed, if the hypothesis were true? `\(\rightarrow\)` *p*-value)
+
+---
+
+# Probability
+
+## Tells us how likely something is to happen
+`\(\LARGE P(X)=\frac{\#\;of\;ways\;that\;X\;can\;occur}{Total\;\#\;of\;possible\;outcomes}\)`
+
+### When you flip a coin, what is the probability of the head (or the front side)?
+
+### What if you saw three heads in a row during the first three tosses?
+  
+---
+
+# Probability
+
+## The law of large numbers
+
+Probability is about after a large number of times
+
+As the number of trials (infinitely) increases, the average outcome converges to the expected probability (~~frequentist statistics~~)
+
+## Why important to take this into account?
+
+Helpful to understand the precise idea of some terms (e.g., confidence interval)
+
+---
+
+# Central limit theorem
+
+## Why important?
+
+We can apply probabilistic and statistical methods **that work for normal distributions** to problems involving other types of distributions
+
+## Characteristics
+
+1. The distribution of sample means (aka. sampling distribution) will have less spread than the original population distribution
+2. No matter what the original distribution looks like, the sampling distribution approximates a normal distribution if the sample sizes are larger enough
+3. Bigger sample sizes lead to a smaller spread of the sampling distribution
+
+### Code from https://www.analyticsvidhya.com/blog/2019/05/statistics-101-introduction-central-limit-theorem/
+
+---
+
+# Central limit theorem
+
+.pull-left[
+## Your population is distributed as
+
+```r
+set.seed(322) # Replicability
+dat &lt;- rbeta(10000, 3, 25) # Data simulation
+hist(dat, col ="lightblue", main="Population distribution", xlab = "Simulated data") # Plot a histogranm
+```
+
+## The population mean is 0.107.
+]
+
+.pull-right[
+![](Lab_4_I.Heo_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Central limit theorem
+
+.pull-left[
+## Collect a sample of 20 values, calculate the mean, and plot it... We repeat this 10000 times
+
+```r
+set.seed(20210923) # Replicability
+sample.20 &lt;- c() # Empty vector
+n=10000 # The number of iterations
+for (i in 1:n) {
+  sample.20[i] = mean(sample(dat,20, replace = TRUE))}
+hist(sample.20, col ="lightblue", main="Sample size = 20",xlab = "Simulated data", xlim=c(0.07, 0.17))
+abline(v = mean(sample.20), col = "Red")
+```
+
+## The mean is 0.107.
+]
+
+.pull-right[
+![](Lab_4_I.Heo_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Central limit theorem
+
+.pull-left[
+## Collect a sample of 50 values, calculate the mean, and plot it... We repeat this 10000 times
+
+```r
+set.seed(20210923) # Replicability
+sample.50 &lt;- c() # Empty vector
+n=10000 # The number of iterations
+for (i in 1:n) {
+  sample.50[i] = mean(sample(dat,50, replace = TRUE))}
+hist(sample.50, col ="lightblue", main="Sample size = 50",xlab = "Simulated data", xlim=c(0.07, 0.17))
+abline(v = mean(sample.50), col = "Red")
+```
+
+## The mean is 0.107.
+]
+
+.pull-right[
+![](Lab_4_I.Heo_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Central limit theorem
+
+.pull-left[
+## Collect a sample of 500 values, calculate the mean, and plot it... We repeat this 10000 times
+
+```r
+set.seed(20210923) # Replicability
+sample.500 &lt;- c() # Empty vector
+n=10000 # The number of iterations
+for (i in 1:n) {
+  sample.500[i] = mean(sample(dat,500, replace = TRUE))}
+hist(sample.500, col ="lightblue", main="Sample size = 500",xlab = "Simulated data", xlim=c(0.07, 0.17))
+abline(v = mean(sample.500), col = "Red")
+```
+
+## The mean is 0.107.
+]
+
+.pull-right[
+![](Lab_4_I.Heo_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Sampling distribution of the mean
+
+## What is it?
+
+### Distribution of the sample means (i,e., collection of the means of the possible samples)
+
+## What can we do?
+
+### Calculate the probability of getting any specific mean from a random sample
+
+### Use the z-table since the sampling distribution is normally distributed
+
+---
+
+# Sampling distribution of the mean
+
+## Sampling error
+
+Deviation of the (each) sample mean from the population mean
+
+`\(\huge \bar{X}-\mu_{X}\)`
+
+## Standard error of the mean
+
+Standard deviation of the sampling distribution of the mean (spread of sampling error)
+
+Typical distance that a sample mean deviates from the population mean
+
+`\(\huge s_{\bar{X}}=\frac{s_{X}}{\sqrt{n}}\)`
+
+---
+
+# Estimation
+
+## In an easy word
+
+### Making a BEST guess about the population parameter to do hypothesis testing
+
+## Two common forms
+
+### Point estimation and interval estimation
+
+---
+
+# Estimation
+
+## Point estimation
+
+### One sample statistic to represent the population is called a point estimate
+
+### Example: the mean of a sample
+
+## Interval estimation
+
+### A range that adds uncertainties around a point estimate
+
+### Example: 95% confidence interval, 95% confidence interval, 99% confidence interval
+
+---
+
+# Estimation
+
+## Point estimation
+
+`\(\bar{X}\)`
+
+## Interval estimation
+
+90% confidence interval = `\(\bar{X}\pm1.645\times\frac{s_{X}}{\sqrt{n}} = [\bar{X}-1.645\times\frac{s_{X}}{\sqrt{n}},\;\bar{X}+1.645\times\frac{s_{X}}{\sqrt{n}}]\)`
+
+95% confidence interval = `\(\bar{X}\pm1.96\times\frac{s_{X}}{\sqrt{n}} = [\bar{X}-1.96\times\frac{s_{X}}{\sqrt{n}},\;\bar{X}+1.96\times\frac{s_{X}}{\sqrt{n}}]\)`
+
+99% confidence interval = `\(\bar{X}\pm2.575\times\frac{s_{X}}{\sqrt{n}} = [\bar{X}-2.575\times\frac{s_{X}}{\sqrt{n}},\;\bar{X}+2.575\times\frac{s_{X}}{\sqrt{n}}]\)`
+
+---
+
+# Group activity
+
+## Case
+
+Noelia, a chief psychometrician at Educational Testing Service, is responsible for analyzing SAT scores. She selected a sample data set of 400 students from the population. According to the preliminary analyses, the population has a mean of 1000 and a standard deviation of 200.
+
+## Can you answer below?
+- What is the typical distance that a sample mean of SAT scores deviates from the population mean?
+- What is the probability that the one sample of 400 students randomly drawn has a mean SAT score of 1010 or higher?
+- If Noelia calculates the 95% confidence interval of the mean, what would be?
+- Say Joel, a statistician in the U.S. Department of Education, visited Noelia and received a sample of 625 students to do some research.
+  - Between Noelia and Joel, who do you think will have a sampling distribution of the mean that is less dispersed? Why?
+
+---
+
+# Before you go home...
+
+## Any questions or comments?
+
+---
+
+# Cheers! Good luck!
+
+&lt;center&gt;
+&lt;img src="img/kakao-exam.png" width=500&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

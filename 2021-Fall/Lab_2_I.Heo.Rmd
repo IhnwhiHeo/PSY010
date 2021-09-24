@@ -160,14 +160,12 @@ barplot(counts, main="Car Distribution",
 .pull-left[
 ## You can even stack the bars!
 ```{r bar3, eval=FALSE}
-# Stacked Bar Plot with Colors and Legend
-counts <- table(mtcars$vs, mtcars$gear)
-barplot(counts,
-  main="Car Distribution by Gears and Engines",
-  xlab="Number of Gears",
-  col=c("darkblue","darkgreen"),
-  legend = rownames(counts))
+set.seed(322) # Replicability
+dat <- rbeta(10000, 3, 25) # Data simulation
+hist(dat) # Plot a histogranm
 ```
+
+## The mean: 0.107
 ]
 
 .pull-right[
