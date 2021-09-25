@@ -273,7 +273,7 @@ $\bar{X}$
 
 ## Case
 
-Noelia, a chief psychometrician at Educational Testing Service, is responsible for analyzing SAT scores. She selected a sample data set of 400 students from the population. According to the preliminary analyses, the population has a mean of 1000 and a standard deviation of 200.
+Noelia, a chief psychometrician at Educational Testing Service, is responsible for analyzing SAT scores. She selected a sample data set of 400 students from the population. According to the preliminary analyses, the sample has a mean of 1000 and a standard deviation of 200.
 
 ## Can you answer below?
 - What is the typical distance that a sample mean of SAT scores deviates from the population mean?
