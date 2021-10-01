@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Analysis of Psychological Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ihnwhi Heo (iheo2@ucmerced.edu)" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="merced.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide, title-slide
+
+# Analysis of Psychological Data
+## <br/>Lab 5. Think Like a Scientist: Hypothesis Testing
+### Ihnwhi Heo (<a href="mailto:iheo2@ucmerced.edu" class="email">iheo2@ucmerced.edu</a>)
+### Quantitative Methods, Measurement, and Statistics<br>Website: <a href="https://ihnwhiheo.github.io" class="uri">https://ihnwhiheo.github.io</a><br>Office: <a href="https://ucmerced.zoom.us/j/2093557522" class="uri">https://ucmerced.zoom.us/j/2093557522</a> (Friday 1:30 - 3:30 pm)
+
+---
+
+
+# Thanks, Siv!
+
+## Who is responsible for lab contents?
+
+### Ihnwhi: Lab 1 ~ 4
+
+### Sivenesi: Lab 5 ~ 8
+
+### Mahdi: Lab 9 ~ 12
+
+### Each TA: Lab 13
+
+---
+
+# Reminders
+
+## Homework 3 is due October 14 (50 points)
+
+## Homework 4 is due October 21 (7 points)
+
+## The semester is getting busy. Plan ahead to avoid getting overwhelmed!
+
+## Be kind to **yourself**!
+
+---
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### Hypothesis testing
+
+## Group activity
+
+---
+
+# Statistical inference
+
+## Idea 1
+
+### Let's make a best guess about the population parameter and test if that guess is true&lt;br&gt; `\(\rightarrow\)` Estimation and hypothesis testing
+
+## Idea 2
+
+### Let's assume we are interested in one sample statistic (e.g., a sample mean) and have the distribution of all the possible sample statistics&lt;br&gt; `\(\rightarrow\)` Sampling distribution
+
+---
+
+# Hypothesis testing
+
+## In a nutshell
+
+### A form of statistical inference to draw conclusions about population parameters using sample statistics
+
+### How science is conducted and advanced
+
+### One of Ihnwhi's research interests is Bayesian hypothesis testing
+
+### But... we learn frequentist hypothesis testing, *a.k.a.*, **NHST** :)
+
+---
+
+# Hypothesis testing
+
+## From now on, let me show you a general procedure
+
+### Set research questions
+
+### State null and alternative hypothesis
+
+### Select the level of significance, i.e., `\(\alpha\)`
+
+### Compute the test statistic
+
+### Make a statistical decision `\(\rightarrow\)` reject or not reject the null hypothesis
+
+---
+
+# Hypothesis testing
+
+## Starts by setting research questions (i.e., what you want to know)
+
+### How is a group different from the general population?
+
+### How is one group different from another group?
+
+### How does a group differ over two timepoints?
+  
+---
+
+# Setting research questions
+
+## How is a group different from the general population?
+
+### Are UC Merced students friendlier than the general population?
+
+&lt;center&gt;
+&lt;img src="img/lab5-ucmstu.jpeg" width=750&gt;
+&lt;/center&gt;
+
+---
+
+# Setting research questions
+
+## How is one group different from another group?
+
+### Are Lakers supporters taller than Clippers supporters?
+
+.pull-left[
+&lt;center&gt;
+&lt;img src="img/lab5-lakers.png" width=450&gt;
+&lt;/center&gt;
+]
+
+.pull-right[
+&lt;center&gt;
+&lt;img src="img/lab5-clippers.png" width=350&gt;
+&lt;/center&gt;
+]
+
+---
+
+# Setting research questions
+
+## How does a group differ over two timepoints?
+
+### Does the rating of food at the Pavilion differ between 1st year and 4th year?
+
+&lt;center&gt;
+&lt;img src="img/lab5-pavilion.jpeg" width=450&gt;
+&lt;/center&gt;
+
+---
+
+# Setting research questions
+
+## Let's take one example as a research question
+
+### Are UC Merced students friendlier than the general population?
+
+- Say we administer the Human Friendliness Survey to **all UC Merced people and other normal people** and obtain their friendliness scores out of 150
+
+- Is it feasible to collect all responses from the population? Otherwise...
+
+---
+
+# Stating a hypothesis
+
+## Definition of a hypothesis
+
+### Given an observation, a phenomonen, or a scientific problem, &lt;br&gt;A statement or proposed explanation about the value for a population parameter
+
+## Null Hypothesis Significance Testing (NHST)
+
+### We need a null hypothesis and an alternative hypothesis
+
+---
+
+# Generating a hypothesis
+
+## Our research question
+
+### Are UC Merced students friendlier than most other people?
+
+## Null hypothesis `\(\rightarrow\)` nothing is going on; we want to reject this!
+
+`\(H_{0}\)`: UC Merced students are equally as friendly as most other people `\(\rightarrow\mu_{UCM}=\mu_{population}\)`
+
+## Alternative hypothesis `\(\rightarrow\)` something is going on; we hope to retain this!
+
+`\(H_{1}\)`: UC Merced students are more friendlier than most other people `\(\rightarrow\mu_{UCM}&gt;\mu_{population}\)`
+
+---
+
+# Generating a hypothesis
+
+## Depending on research questions, alternative hypotheses can be...
+
+### Directional: expect one group might be greater or less than the other
+- Is the height of giraffes bigger than polar bears?
+  - `\(H_{0}:\mu_{giraffes}=\mu_{polar\:bears}\)`
+  - `\(H_{1}:\mu_{giraffes}&gt;\mu_{polar\:bears}\)`
+
+### Non-directional: focus on only whether there are differences
+- Does playing music when studying have a different effect on concentration than without music?
+  - `\(H_{0}:\mu_{music}=\mu_{no\:music}\)`
+  - `\(H_{1}:\mu_{music}\neq\mu_{no\:music}\)`
+
+---
+
+# Generating a hypothesis
+
+## Depending on research questions, alternative hypotheses can be...
+
+### Given the research questions below,&lt;br&gt;What would the null and alternative hypothesis be?&lt;br&gt;Would the alternative hypothesis be directional or non-directional?
+- Are Lakers supporters taller than Clippers supporters?
+- Does the rating of food at the Pavilion differ between 1st year and 4th year?
+
+---
+
+# Selecting `\(\alpha\)` and computing the test statistic
+
+## Go back to our example
+### Say we found that the mean friendliness score was much higher among UC Merced students (Mean = 130) compared to the score in other people (Mean = 100)
+
+## To compare these means...
+
+### Select the level of significance, i.e., `\(\alpha\)`, which is usually .05 (5%)
+
+### Compute the test statistic and obtain the *p*-value
+
+---
+
+# Making a statistical decision
+
+## Say our *p*-value is .03
+
+### There is a 3% chance of getting our sample mean (or more extreme) if the null hypothesis were true (We can still get this sample mean if the null hypothesis is true!)
+
+## Note that we usually set `\(\alpha\)` to .05
+
+---
+
+# Making a statistical decision
+
+## If our *p*-value is lower than `\(\alpha\)`, we reject the null hypothesis!!!
+`\(H_{0}\)`: UC Merced students are equally as friendly as most other people `\(\rightarrow\mu_{UCM}=\mu_{population}\)`
+
+`\(H_{1}\)`: UC Merced students are more friendlier than most other people `\(\rightarrow\mu_{UCM}&gt;\mu_{population}\)`
+
+&lt;center&gt;
+&lt;img src="img/lab5-pvaluememe.jpeg" width=400&gt;
+&lt;/center&gt;
+
+---
+
+# Making a statistical decision
+
+## Understanding the graph (one-tail)...
+
+### Big idea: Check whether the p-value falls in the critical region
+
+&lt;center&gt;
+&lt;img src="img/lab5-decision-graph1.png" width=1500&gt;
+&lt;/center&gt;
+
+---
+
+# Making a statistical decision
+
+## Understanding the graph (two-tail)...
+
+### Big idea: Check whether the p-value falls in the critical region
+
+&lt;center&gt;
+&lt;img src="img/lab5-decision-graph2.png" width=1500&gt;
+&lt;/center&gt;
+
+---
+
+# Hypothesis testing
+
+## A black bear story from a famous Dutch statistician!
+
+### https://www.youtube.com/watch?v=Dqm1vqk8TC0
+
+&lt;center&gt;
+&lt;img src="img/lab5-blackbear.png" width=600&gt;
+&lt;/center&gt;
+
+---
+
+# Trailer
+
+## Some critical thoughts on NHST
+
+### Say we fail to reject the null hypothesis. Does this mean the alternative hypothesis is true?
+
+### Say our *p*-value is .051 whereas `\(\alpha\)` is .05. Would it be reasonable to say there is not enough evidence to reject the null hypothesis?
+
+### Note that journals love *p*-values lower than .05 ONLY... is it fair?
+
+---
+
+# Group activity
+
+## Case 1
+
+Meriam is interested in studying stress in college students. As a health psychologist, she wants to know whether UC Merced students are less stressed than UC Davis students. She administers the Stress Questionnaire to 60 UCM students and 60 UC Davis students. The questionnaire is scored out of 10, where a score of 10 reflects extremely high stress and a score of 0 reflects no stress. The `\(\alpha\)` has been set to .05. UC Merced students had a score of 5 and UC Davis students had a score of 8.
+She finds that UC Merced students had lower stress scores than UC Davis students (*p* = .03).
+
+## Can you answer below?
+- What is the null hypothesis?
+- What is the alternative hypothesis?
+- Is the alternative hypothesis directional or non-directional?
+- What can you conclude based on the results?
+
+---
+
+# Group activity
+
+## Case 2
+
+Yazeed is a personality psychologist. He heard that reading aloud can affect your IQ. He recruited 100 participants to complete his study. 50 read aloud everyday for 3 months and 50 read silently instead. He then gave everyone an IQ test. The `\(\alpha\)` has been set to .05. The reading aloud group had a mean IQ of 100 and the reading silent group had a mean IQ of 110. The *p*-value was .30.
+
+## Can you answer below?
+- What is the null hypothesis?
+- What is the alternative hypothesis?
+- Is the alternative hypothesis directional or non-directional?
+- What can you conclude based on the results?
+
+---
+
+
+# Before you go home...
+
+## You all probably have some ideas of study you want to conduct. Think of some research questions related to your major and generate some hypotheses.
+
+## Any questions or comments?
+
+---
+
+# Thanks! Have a nice weekend!
+
+&lt;center&gt;
+&lt;img src="img/kakao-week4.png" width=700&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
