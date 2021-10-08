@@ -32,9 +32,9 @@ output:
 
 # Reminders
 
-## Homework 3 is due October 14 (50 points)
+## Homework 3 is due October 29 (50 points)
 
-## Homework 4 is due October 21 (7 points)
+## Homework 4 is due October 29 (7 points)
 
 ## The semester is getting busy. Plan ahead to avoid getting overwhelmed!
 
