@@ -1,0 +1,337 @@
+---
+title: "Analysis of Psychological Data"
+subtitle: "<br/>Lab 7. Hey Means, Don't Be Mean To Us: Z-Test and T-Test"
+author: "Ihnwhi Heo (iheo2@ucmerced.edu)"
+institute: "Quantitative Methods, Measurement, and Statistics<br>Website: https://ihnwhiheo.github.io<br>Office: https://ucmerced.zoom.us/j/2093557522 (Friday 1:30 - 3:30 pm)"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [merced.css, rutgers-fonts]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: center, middle, title-slide
+      ratio: "16:9"
+
+---
+
+# Reminders
+
+## Homework 3 is **on now** and due October 29 (50 points)
+
+## Homework 4 is available on October 21 and due October 29 (7 points)
+
+## Difficulties in homework? Join office hours!
+
+---
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### z-test
+
+### One-sample t-test
+
+### Independent-sample t-test
+
+## Do it together
+
+---
+
+# Statistical inference
+
+## Idea 1
+
+### Let's make the best guess about the population parameter and test if that guess is true<br> $\rightarrow$ Estimation and hypothesis testing
+
+## Idea 2
+
+### Let's assume we are interested in one sample statistic (e.g., a sample mean) and have the distribution of all the possible sample statistics<br> $\rightarrow$ Sampling distribution
+
+### Usually, we are interested in the mean level of something in the population! Let me show you one example
+
+---
+
+# Statistical inference
+
+## Idea 1
+
+### **Estimation** $\rightarrow$ Our best guess about the population mean is the sample mean
+
+### **Hypothesis testing** $\rightarrow$ How likely our sample mean (or more extreme) is to be observed if the null hypothesis is true? If the *p*-value is lower than $\alpha$-level, reject the null hypothesis!
+
+## Idea 2
+
+### **Sampling distribution** $\rightarrow$ Collect a sample and calculate the sample mean, repeat this process infinite times, and get the sampling distribution of the mean. Then, quantify how close/far our sample mean is (i.e., **test-statistic**)
+
+---
+
+# Are you ready?
+
+## z-test, t-test, ANOVA, ANCOVA, MANOVA, MANCOVA, RM-ANCOVA... WHAT?!
+
+### Playing the game of statistical inference about population 'means' (as I showed before)
+
+<center>
+<img src="img/lab7-difficultstat.jpeg" width=500>
+</center>
+
+---
+
+# Z-test
+
+## What does it test?
+
+### If a sample mean is different from a specified value $\mu_{0}$
+
+### Answers how many SEs away from the null distribution is our sample mean?
+
+## But, when?
+
+### We know the population mean and population standard deviation (VERY IDEAL!)
+
+---
+
+# Z-test
+
+## Idea
+
+### We have a sample mean (estimation) and want to test the likelihood of observing this sample (or more extreme) if the null hypothesis were true (hypothesis testing)
+
+### In doing estimation and hypothesis testing, we have made a sampling distribution of the mean. Now, let's quantify how close/far our sample mean is from our expectation using **test-statistic**
+
+## Test-statistic
+
+<center>
+$\LARGE\frac{\text{Observed Data - What We Expect if the Null is True}}{\text{Average Variation}}$
+
+---
+
+# Z-test
+
+## Idea
+
+### We have a sample mean (estimation) and want to test the likelihood of observing this sample (or more extreme) if the null hypothesis were true (hypothesis testing)
+
+### In doing estimation and hypothesis testing, we have made a sampling distribution of the mean. Now, let's quantify how close/far our sample mean is from our expectation using
+
+## Test-statistic (**z-statistic**) when we know $\mu_{0}$ and $\sigma_{\overline{X}}$
+
+<center>
+$\LARGE z=\frac{\overline{X}-\mu_{0}}{\sigma_{\overline{X}}}\;\;\;\text{where}\;\;\;\sigma_{\overline{X}}=\frac{\sigma_{X}}{\sqrt{n}}$
+
+---
+
+# Z-test
+
+## Effect size
+
+### Remember the practical significance! Let's quantify the size of effect (if significant)
+### Means how many standard deviations (SDs) the sample mean lies from the $\mu_{0}$ in the population
+### Rule of thumb: 0.2 (small), 0.5 (medium), 0.8 (large)
+
+## In z-test, the effect size is calculated as
+
+<center>
+$\LARGE d=\frac{\overline{X}-\mu_0}{\sigma_{X}}\;\;\;\text{where}\;\;\;\sigma_{X}=\sqrt{\frac{SS}{n-1}}$
+
+---
+
+# Do it together
+
+### Say the average person spends 120 minutes (with the standard deviation of 30 minutes) on social media per day. Does the average time on social media in **this class** differ from the general population? Use the $\alpha$-level of .05.
+
+---
+
+# Big picture
+
+<center>
+<img src="img/lab7-bigpic1.png" width=2000>
+</center>
+
+---
+
+# T-test
+
+## Student's t-distribution vs. teacher's t-distribution
+
+<center>
+<img src="img/lab7-teacherst.png" width=1100>
+</center>
+
+---
+
+# T-test
+
+## Idea
+
+### Still interested in population means from either one sample or two samples (independent vs. related)
+
+## But, when?
+
+### We know the population mean but not the population standard deviation (MORE REALISTIC!)
+
+---
+
+# T-test
+
+## Degrees of freedom (df)
+
+### # of independent pieces of information $\rightarrow$ # of values that are free to vary in a data set
+
+### Determines the shape of the t-distributions (i.e., df is the parameter of the t-distributions)
+
+### One-sample t-test = $n - 1$
+
+### Independent-sample t-test = $n_1+n_2-2$
+
+---
+
+# One-sample t-test
+
+## What does it test?
+
+### If a sample mean is different from a specified value $\mu_{0}$
+
+## Note
+
+### We use not the normal distribution but the t-distribution based on df of $n-1$
+
+## But, when?
+
+### We know the population mean but not the population standard deviation (MORE REALISTIC!)
+
+---
+
+# One-sample t-test
+
+## Idea
+
+### We have a sample mean (estimation) and want to test the likelihood of observing this sample (or more extreme) if the null hypothesis were true (hypothesis testing)
+
+### In doing estimation and hypothesis testing, we have made a sampling distribution of the mean. Now, let's quantify how close/far our sample mean is from our expectation
+
+## Test-statistic (**t-statistic**) when we know $\mu_{0}$ but do not know $\sigma_{\overline{X}}$
+
+<center>
+$\LARGE t=\frac{\overline{X}-\mu_{0}}{s_{\overline{X}}}\;\;\;\text{where}\;\;\;s_{\overline{X}}=\frac{s_{X}}{\sqrt{n}}$
+
+---
+
+# One-sample t-test
+
+## Effect size
+
+<center>
+$\LARGE d=\frac{\overline{X}-\mu_{0}}{s_{X}}\;\;\;\text{where}\;\;\;s_{X}=\sqrt{\frac{SS}{n-1}}$
+
+---
+
+# Do it together
+
+### Say we are interested in knowing whether this class's ratings of Pavilion food differs from the rest of the UC population. The average rating of Pavilion food is 50, and we do not have any information about the standard deviation in the population. Use the $\alpha$-level of .05.
+
+---
+
+# Big picture
+
+<center>
+<img src="img/lab7-bigpic2.png" width=2000>
+</center>
+
+---
+
+# Independent-sample t-test
+
+## What does it test?
+
+### To compare two samples whether they are different from each other
+
+## Note
+
+### We use the t-distribution based on df of $n_1+n_2-2$
+
+## But, when?
+
+### We know the population mean but not the population standard deviation (MORE REALISTIC!)
+
+---
+
+# Independent-sample t-test
+
+## Idea
+
+### We have a difference between the two sample means (estimation) and want to test the likelihood of observing this sample mean difference (or more extreme) if the null hypothesis were true (hypothesis testing)
+
+### In doing estimation and hypothesis testing, we have made a sampling distribution of the difference of the two means. Now, let's quantify how close/far our sample mean difference is from our expectation
+
+---
+
+# Independent-sample t-test
+
+## Test-statistic (**t-statistic**) when we know $\mu_{0}$ but do not know $\sigma_{\overline{X}}$
+
+<center>
+$\LARGE t=\frac{\overline{X}_1-\overline{X}_2}{s_{\overline{X}_1-\overline{X}_2}}\;\;\;\text{where}\;\;\;s_{\overline{X}_1-\overline{X}_2}=\sqrt{\frac{s^2_p}{n_1}+\frac{s^2_p}{n_2}}$
+
+$\LARGE s^2_p=\frac{s^2_1+s^2_2}{2}\;\;\;\text{when}\;\;\;n_1=n_2$
+
+$\LARGE s^2_p=\frac{s^2_1(n_1-1)+s^2_2(n_2-1)}{n_1+n_2-2}\;\;\;\text{when}\;\;\;n_1\neq n_2$
+
+---
+
+# Independent-sample t-test
+
+## Effect size
+
+<center>
+$\LARGE d=\frac{\overline{X}_1-\overline{X}_2}{s_p}\;\;\;\text{where}$
+
+$\LARGE s_p=\sqrt{\frac{s^2_1+s^2_2}{2}}\;\;\;\text{when}\;\;\;n_1=n_2$
+
+$\LARGE s_p=\sqrt{\frac{s^2_1(n_1-1)+s^2_2(n_2-1)}{n_1+n_2-2}}\;\;\;\text{when}\;\;\;n_1\neq n_2$
+---
+
+# Do it together
+
+### Does the flight distance of a paper plane differ by plane size (small vs. large)? Use the $\alpha$-level of .05.
+
+---
+
+# Big picture
+
+<center>
+<img src="img/lab7-bigpic3.png" width=2000>
+</center>
+
+---
+
+# Summary
+
+## Z-test
+
+### When to compute (one sample mean; know population SD) & how to compute?
+
+## One-sample T-test
+
+### When to compute (one sample mean; don't know population SD) & how to compute?
+
+## Independent-sample T-test
+
+### When to compute (difference of two sample means; don't know population SD) & how to compute?
+
+---
+
+# Before you go home...
+
+## Any questions or comments?
+
+---
+
+# Thanks! Have a nice weekend!
+
+<center>
+<img src="img/kakao-week7.png" width=600>
+</center>
