@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Analysis of Psychological Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ihnwhi Heo (iheo2@ucmerced.edu)" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="merced.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide, title-slide
+
+# Analysis of Psychological Data
+## <br/>Lab 8. Hey Means, Don’t Be Mean To Us: Related-Sample T-Test and One-Way ANOVA
+### Ihnwhi Heo (<a href="mailto:iheo2@ucmerced.edu" class="email">iheo2@ucmerced.edu</a>)
+### Quantitative Methods, Measurement, and Statistics<br>Website: <a href="https://ihnwhiheo.github.io" class="uri">https://ihnwhiheo.github.io</a><br>Office: <a href="https://ucmerced.zoom.us/j/2093557522" class="uri">https://ucmerced.zoom.us/j/2093557522</a> (Friday 1:30 - 3:30 pm)
+
+---
+
+
+# Reminders
+
+## Homework 3 is **on now** and due October 29 (50 points)
+
+## Homework 4 is **on now** and due October 29 (7 points)
+
+## Difficulties in homework? Join office hours. I am happy to help you!
+
+## Exam 2 is on November 2
+
+---
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### Related-sample t-test
+
+### One-way ANOVA
+
+## Do it together
+
+---
+
+# Are you ready?
+
+## z-test, t-test, ANOVA, ANCOVA, MANOVA, MANCOVA, RM-ANCOVA... WHAT?!
+
+### Playing the game of statistical inference about population 'means'
+
+&lt;center&gt;
+&lt;img src="img/lab7-difficultstat.jpeg" width=500&gt;
+&lt;/center&gt;
+
+---
+
+# Big picture
+
+&lt;center&gt;
+&lt;img src="img/lab7-bigpic3.png" width=2000&gt;
+&lt;/center&gt;
+
+---
+
+# Related-sample t-test
+
+## When do we use it?
+
+### Participants included in one sample are dependent on the other sample
+
+## Degrees of freedom
+
+`\(df=n_{dif}-1\)`
+
+## Test-statistic (**t-statistic**)
+
+&lt;center&gt;
+`\(\LARGE t=\frac{\overline{X}_1-\overline{X}_2}{s_{\overline{dif}}}\;\;\;\text{where}\;\;\;s_{\overline{dif}}=\frac{s_{dif}}{\sqrt{n_{dif}}}\)`
+
+---
+
+# Related-sample t-test
+
+## Effect size
+
+### Remember the practical significance! Let's quantify the size of effect (if significant)
+### Means the magnitude of the mean difference in the number of standard deviation units
+### Rule of thumb: 0.2 (small), 0.5 (medium), 0.8 (large)
+
+## In related-sample t-test, the effect size is
+
+&lt;center&gt;
+`\(\LARGE d=\frac{\overline{X}_1-\overline{X}_2}{s_{dif}}\)`
+
+---
+
+# Effect size
+
+.pull-left[
+## z-test
+
+`\(\LARGE d=\frac{\overline{X}-\mu_0}{\sigma_{X}}\)`
+
+## one-sample t-test
+
+`\(\LARGE d=\frac{\overline{X}-\mu_{0}}{s_{X}}\)`
+]
+
+.pull-right[
+## independent-sample t-test
+
+`\(\LARGE d=\frac{\overline{X}_1-\overline{X}_2}{s_p}\)`
+
+## related-sample t-test
+
+`\(\LARGE d=\frac{\overline{X}_1-\overline{X}_2}{s_{dif}}\)`
+]
+
+---
+
+# Do it together
+
+## Example 1 from Youtube
+
+### https://www.youtube.com/watch?v=Ko_WlL1oF1o
+
+## Example 2
+
+### Does medication lower cholesterol levels? A group of 24 patients received medication to reduce their cholesterol. Patient cholesterol was measured before and after the medication. `\(\alpha\)` = .05.
+
+## Example 3
+
+### Is your current happiness level significantly different from the happiness level in August?
+
+---
+
+# Big picture
+
+&lt;center&gt;
+&lt;img src="img/lab8-bigpic4.png" width=2000&gt;
+&lt;/center&gt;
+
+---
+
+# One-way ANOVA
+
+## So far, we've only compared two groups (e.g., Lakers vs. Clippers supporters)
+
+### z-test, one-sample t-test, independent-sample t-test, related-sample t-test
+
+## What if we have three groups? (e.g., Lakers, Clippers, and Sacramento Kings supporters)
+
+### ANOVA (= Analysis of Variance)
+
+---
+
+# One-way ANOVA
+
+## Variables
+
+### So far, we think of our variables as different groups
+
+### For ANOVA, think of our variables as multiple levels of the same variable
+
+## That is,
+
+### Instead of comparing Lakers vs. Clippers vs. Sacramento Kings
+
+### We have 'basketball supporters' as the independent variable (*aka*. factor in ANOVA context)
+
+### The 'basketball supporters' has 3 levels: Lakers, Clippers, and Sacramento Kings
+
+---
+
+# One-way ANOVA
+
+## 'N-Way': N = the number of IV (or factor)
+
+### One-way ANOVA: ANOVA using one IV; factorial ANOVA: 2 or more IV
+
+&lt;center&gt;
+&lt;img src="img/lab8-anova.jpg" width=670&gt;
+&lt;/center&gt;
+
+---
+
+# One-way ANOVA
+
+## F-ratio
+
+### test-statistic for ANOVA
+
+### The ratio between the between group-variability and within-group variability
+
+### Larger F-ratio `\(\rightarrow\)` larger portion of between-group variability compared to within-group variability
+
+&lt;center&gt;
+`\(\LARGE F = \frac{MS_{between}}{MS_{within}}\)`
+
+---
+
+# One-way ANOVA
+
+## 'Variance' is the key, and do you remember that SS plays a role in variance?
+
+### Remember?
+
+`\(\LARGE \sigma^2=\frac{\Sigma_{i=1}^{N}(X_i-\overline{X})^2}{N}\)` and `\(\LARGE s^2=\frac{\Sigma_{i=1}^{n}(X_i-\overline{X})^2}{n-1}\)`
+
+## SS means the sum of each individual's squared deviation from the mean
+
+`\(\LARGE SS_{X}=\Sigma_{i=1}^{N}(X_i-\overline{X})^2\)`
+
+---
+
+# One-way ANOVA
+
+## We 'separate' the between-group variance and within-group variance
+
+`\(\LARGE SS_{total}=SS_{between}+SS_{within}\)`
+
+## where
+
+`\(\LARGE SS_{total}=\Sigma_{i=1}^{N}(X_{ij}-\overline{X})^2\;\;\;\;\;df=N-1\)`
+
+`\(\LARGE SS_{between}=\Sigma_{i=1}^{N}(\overline{X}_{j}-\overline{X})^2\;\;\;\;\;df=J-1\)`
+
+`\(\LARGE SS_{within}=\Sigma_{i=1}^{N}(X_{ij}-\overline{X}_j)^2\;\;\;\;\;df=N-J\)`
+
+---
+
+# One-way ANOVA
+
+## Mean squares
+
+`\(\LARGE MS_{between}=\frac{SS_{between}}{df_{between}}\)`
+
+`\(\LARGE MS_{within}=\frac{SS_{within}}{df_{within}}\)`
+
+## Finally, F-ratio
+
+`\(\LARGE F = \frac{MS_{between}}{MS_{within}}\)`
+
+---
+
+# Do it together
+
+## Example
+
+### Some researchers are interested in whether social media use impacts sleep quality
+
+---
+
+# Big picture
+
+&lt;center&gt;
+&lt;img src="img/lab8-bigpic5.png" width=2000&gt;
+&lt;/center&gt;
+
+---
+
+# Summary
+
+## Related-sample t-test
+
+### When to compute (when comparing dependent samples, e.g., pre-test &amp; post-test) &amp; how to compute?
+
+## Effect sizes
+
+### What it is (magnitude of difference between means)
+
+## One-way ANOVA
+
+### When to compute (when you have more than 2 groups)
+
+---
+
+# Before you go home...
+
+## Exam 2 is on November 2
+
+### Bring red scantron (large and red one)
+
+### Pencil, eraser, pen, calculator, notes, z-table, t-table, F-table
+
+### Check everything is working before the exam!
+
+---
+
+# Before you go home...
+
+## Correct scantron form (otherwise, you will get a score of **0**)
+
+&lt;center&gt;
+&lt;img src="img/lab8-scantron.png" width=540&gt;
+&lt;/center&gt;
+
+---
+
+# Thanks! Have a nice weekend!
+
+&lt;center&gt;
+&lt;img src="img/kakao-week8.jpeg" width=500&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
