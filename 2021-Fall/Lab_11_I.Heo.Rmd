@@ -1,0 +1,170 @@
+---
+title: "Analysis of Psychological Data"
+subtitle: "<br/>Lab 11. What Makes Factorial ANOVA Special: Main Effect and Interaction Effect"
+author: "Ihnwhi Heo (iheo2@ucmerced.edu)"
+institute: "Quantitative Methods, Measurement, and Statistics<br>Website: https://ihnwhiheo.github.io<br>Office: https://ucmerced.zoom.us/j/2093557522 (Friday 1:30 - 3:30 pm)"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [merced.css, rutgers-fonts]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: center, middle, title-slide
+      ratio: "16:9"
+
+---
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### Main effect
+
+### Interaction effect
+
+## Do it together
+
+---
+
+# ANOVA: A big idea
+
+## Big idea
+
+### Goal is to compare the means of the dependent variables across different categories of the independent variables
+
+### Comparing the happiness level between UC Merced, Merced College, and Merced High School
+
+### We can collectively term these three groups as a school type, which is a grouping variable
+
+### Such a grouping variable becomes an independent variable, also referred to as a factor
+
+---
+
+# ANOVA: A big idea
+
+## Factor
+
+### Independent variable in ANOVA, which is a grouping variable
+
+### e.g., school type
+
+## Level
+
+### The number of categories in a factor
+
+### e.g., UC Merced, Merced College, and Merced High School
+
+---
+
+# ANOVA: A big idea
+
+## N-way ANOVA (# of factors)
+
+### There are N independent variables (IVs = factors = grouping variables)
+
+### N = 1 $\rightarrow$ One-way ANOVA = ANOVA with 1 IV
+
+### N = 2 or more $\rightarrow$ Factorial ANOVA $\rightarrow$ Start to consider interactions
+
+## A $\times$ B $\times$ C $\times$ ... $\times$ D ANOVA (# of levels)
+
+### 4 $\times$ 4 $\times$ 4 ANOVA = ANOVA with 3 IVs, each with 4 levels
+
+---
+
+# ANOVA: A big idea
+
+## Two-way ANOVA <br> $\rightarrow$ null hypothesis $H_0$: Nothing is going on. No effect (no difference)!
+
+### $H_0$: IV1 does not have a significant effect on DV <br> = Group means on DV across levels in IV1 are not different
+
+### $H_0$: IV2 does not have a significant effect on DV <br> = Group means on DV across levels in IV2 are not different
+
+### $H_0$: Interaction between IV1 and IV2 does not have a significant effect on DV
+
+---
+
+# ANOVA: A big idea
+
+## Two-way ANOVA <br> $\rightarrow$ alternative hypothesis $H_1$: Something is going on. There is an effect!
+
+### $H_1$: IV1 has a significant effect on DV <br> = Group means on DV across levels in IV1 are different
+
+### $H_1$: IV2 has a significant effect on DV <br> = Group means on DV across levels in IV2 are different
+
+### $H_1$: Interaction between IV1 and IV2 has a significant effect on DV
+
+---
+
+# Effect
+
+## Wait... we have been using a word **effect** a lot...
+
+### Null hypothesis (no effect), alternative hypothesis (there is an effect), effect size...
+
+<br>
+
+## Let me ask you: What is an effect in statistics?
+
+---
+
+# Effect
+
+## Intuitively, effect means **'differences'** in statistics!
+
+### Null hypothesis $\rightarrow$ no effect $\rightarrow$ no difference
+
+### Alternative hypothesis $\rightarrow$ there is an effect $\rightarrow$ there is a difference
+
+### Effect size $\rightarrow$ How big our differences are
+
+<br>
+
+## Main effect and interaction effect are also about 'differences'!
+
+---
+
+# Main effect
+
+## Remember, ANOVA is all about comparing means...
+
+### That said, we are **mainly** interested in **mean differences**
+
+---
+
+# Main effect
+
+## Main effect $\rightarrow$ mean difference
+
+### Specifically, mean differences across the levels of one factor
+
+### If we are comparing whether there are differences in the mean happiness level across UC Merced, Merced College, and Merced High School, we are investigating the main effect!
+
+### Because we compare mean differences across the levels (3 groups) of one factor (school type)
+
+---
+
+# Main effect
+
+
+---
+
+# Note
+
+## Whenever we say there are whether main effect or interaction effect, this does not necessarily mean these effects are statistically significant. It is enough for us to suspect there might be.
+
+---
+
+# Before you go home...
+
+## Any questions or comments?
+
+---
+
+# Have a nice weekend!
+
+<center>
+<img src="img/kakao-week11.jpeg" width=500>
+</center>

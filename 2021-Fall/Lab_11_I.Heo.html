@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Analysis of Psychological Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ihnwhi Heo (iheo2@ucmerced.edu)" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="merced.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide, title-slide
+
+# Analysis of Psychological Data
+## <br/>Lab 11. What Makes Factorial ANOVA Special: Main Effect and Interaction Effect
+### Ihnwhi Heo (<a href="mailto:iheo2@ucmerced.edu" class="email">iheo2@ucmerced.edu</a>)
+### Quantitative Methods, Measurement, and Statistics<br>Website: <a href="https://ihnwhiheo.github.io" class="uri">https://ihnwhiheo.github.io</a><br>Office: <a href="https://ucmerced.zoom.us/j/2093557522" class="uri">https://ucmerced.zoom.us/j/2093557522</a> (Friday 1:30 - 3:30 pm)
+
+---
+
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### Main effect
+
+### Interaction effect
+
+## Do it together
+
+---
+
+# ANOVA: A big idea
+
+## Big idea
+
+### Goal is to compare the means of the dependent variables across different categories of the independent variables
+
+### Comparing the happiness level between UC Merced, Merced College, and Merced High School
+
+### We can collectively term these three groups as a school type, which is a grouping variable
+
+### Such a grouping variable becomes an independent variable, also referred to as a factor
+
+---
+
+# ANOVA: A big idea
+
+## Factor
+
+### Independent variable in ANOVA, which is a grouping variable
+
+### e.g., school type
+
+## Level
+
+### The number of categories in a factor
+
+### e.g., UC Merced, Merced College, and Merced High School
+
+---
+
+# ANOVA: A big idea
+
+## N-way ANOVA (# of factors)
+
+### There are N independent variables (IVs = factors = grouping variables)
+
+### N = 1 `\(\rightarrow\)` One-way ANOVA = ANOVA with 1 IV
+
+### N = 2 or more `\(\rightarrow\)` Factorial ANOVA `\(\rightarrow\)` Start to consider interactions
+
+## A `\(\times\)` B `\(\times\)` C `\(\times\)` ... `\(\times\)` D ANOVA (# of levels)
+
+### 4 `\(\times\)` 4 `\(\times\)` 4 ANOVA = ANOVA with 3 IVs, each with 4 levels
+
+---
+
+# ANOVA: A big idea
+
+## Two-way ANOVA &lt;br&gt; `\(\rightarrow\)` null hypothesis `\(H_0\)`: Nothing is going on. No effect (no difference)!
+
+### `\(H_0\)`: IV1 does not have a significant effect on DV &lt;br&gt; = Group means on DV across levels in IV1 are not different
+
+### `\(H_0\)`: IV2 does not have a significant effect on DV &lt;br&gt; = Group means on DV across levels in IV2 are not different
+
+### `\(H_0\)`: Interaction between IV1 and IV2 does not have a significant effect on DV
+
+---
+
+# ANOVA: A big idea
+
+## Two-way ANOVA &lt;br&gt; `\(\rightarrow\)` alternative hypothesis `\(H_1\)`: Something is going on. There is an effect!
+
+### `\(H_1\)`: IV1 has a significant effect on DV &lt;br&gt; = Group means on DV across levels in IV1 are different
+
+### `\(H_1\)`: IV2 has a significant effect on DV &lt;br&gt; = Group means on DV across levels in IV2 are different
+
+### `\(H_1\)`: Interaction between IV1 and IV2 has a significant effect on DV
+
+---
+
+# Effect
+
+## Wait... we have been using a word **effect** a lot...
+
+### Null hypothesis (no effect), alternative hypothesis (there is an effect), effect size...
+
+&lt;br&gt;
+
+## Let me ask you: What is an effect in statistics?
+
+---
+
+# Effect
+
+## Intuitively, effect means **'differences'** in statistics!
+
+### Null hypothesis `\(\rightarrow\)` no effect `\(\rightarrow\)` no difference
+
+### Alternative hypothesis `\(\rightarrow\)` there is an effect `\(\rightarrow\)` there is a difference
+
+### Effect size `\(\rightarrow\)` How big our differences are
+
+&lt;br&gt;
+
+## Main effect and interaction effect are also about 'differences'!
+
+---
+
+# Main effect
+
+## Remember, ANOVA is all about comparing means...
+
+### That said, we are **mainly** interested in **mean differences**
+
+---
+
+# Main effect
+
+## Main effect `\(\rightarrow\)` mean difference
+
+### Specifically, mean differences across the levels of one factor
+
+### If we are comparing whether there are differences in the mean happiness level across UC Merced, Merced College, and Merced High School, we are investigating the main effect!
+
+### Because we compare mean differences across the levels (3 groups) of one factor (school type)
+
+---
+
+# Main effect
+
+
+
+---
+
+# Before you go home...
+
+## Any questions or comments?
+
+---
+
+# Have a nice weekend!
+
+&lt;center&gt;
+&lt;img src="img/kakao-week11.jpeg" width=500&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

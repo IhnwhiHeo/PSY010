@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Analysis of Psychological Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ihnwhi Heo (iheo2@ucmerced.edu)" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="merced.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide, title-slide
+
+# Analysis of Psychological Data
+## <br/>Lab 12. One More Time One More Measurement: Repeated Measures ANOVA
+### Ihnwhi Heo (<a href="mailto:iheo2@ucmerced.edu" class="email">iheo2@ucmerced.edu</a>)
+### Quantitative Methods, Measurement, and Statistics<br>Website: <a href="https://ihnwhiheo.github.io" class="uri">https://ihnwhiheo.github.io</a><br>Office: <a href="https://ucmerced.zoom.us/j/2093557522" class="uri">https://ucmerced.zoom.us/j/2093557522</a> (Friday 1:30 - 3:30 pm)
+
+---
+
+
+# Announcement
+
+## Lab 11
+
+### About main effect and interaction effect `\(\rightarrow\)` very important!
+
+### I will upload my recording, so please watch it!
+
+## Supercharge assignment `\(\rightarrow\)` refill your GPA `\(\rightarrow\)` due November 28
+
+## Assignment 5 (final assignment) `\(\rightarrow\)` due December 7
+
+## Exam 3 `\(\rightarrow\)` You can work in pairs, so find your partner!
+
+---
+
+# Announcement
+
+## We do **not** have a lab on November 26
+
+## We have our **final** lab on December 3
+
+### Will be about correlation and regression
+
+### A small remark on using p-values `\(\rightarrow\)` Do you remember a black bear story?
+
+### Are you happy or sad that this will be our last meeting? :)
+
+---
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### Repeated measures ANOVA
+
+## Do it together
+
+---
+
+# Let's conquer ANOVA
+
+## Big idea
+
+### Goal is to compare the means of the dependent variables across different levels of the independent variables (*aka*. factor = grouping variable)
+
+## A brief example
+
+### Brandon and Michael investigate whether there are mean differences of happiness in the school type (UC Merced, Merced College, and Merced High School)
+
+### What are DV, IV, level of IV?
+
+---
+
+# Let's conquer ANOVA
+
+## N-way (or N-factor) ANOVA (# of factors)
+
+### There are N independent variables (IVs = factors = grouping variables)
+
+### N = 1 `\(\rightarrow\)` One-way ANOVA = ANOVA with 1 IV
+
+### N = 2 or more `\(\rightarrow\)` Factorial ANOVA `\(\rightarrow\)` Start to consider interactions
+
+## A `\(\times\)` B `\(\times\)` C `\(\times\)` ... `\(\times\)` D ANOVA (# of levels)
+
+### 4 `\(\times\)` 4 `\(\times\)` 4 ANOVA = ANOVA with 3 IVs, each with 4 levels
+
+---
+
+# Let's conquer ANOVA
+
+## Between-subjects factor
+
+### Factor separates groups of **different** individuals
+
+### Each score comes from a different subject
+
+## Example?
+
+### Clinical therapy (behavioral, cognitive, control)
+
+### Place of birth (California, Oregon, Florida, Arizona)
+
+---
+
+# Let's conquer ANOVA
+
+## Within-subjects factor
+
+### Factors separate multiple measures within the **same** individuals
+
+### Each subject provides scores under multiple conditions/timepoints
+
+## Example?
+
+### Time (measurements at time 1, time 2, and time 3)
+
+### Repeated measurements in general!
+
+---
+
+# Repeated measures ANOVA
+
+## ANOVA with within-subjects factors
+
+&lt;br&gt;
+
+## In this course, we focus on **one-way repeated measures ANOVA**
+
+### A research question investigates whether there are mean differences across the repeated measurements of the same individuals!
+
+---
+
+# Repeated measures ANOVA
+
+### 1. State the null and alternative hypotheses
+### 2. Choose `\(\alpha\)` level (usually 0.05)
+### 3. Calculate ANOVA table (finding means, SS, df, MS, and observed F value)
+### 4. Determine df1 and df2
+### 5. Locate critical F value
+### 6. Compare the observed F value to the critical F value
+### 7. (If necessary) effect size
+
+---
+
+# Do it together
+
+## Shelby and Vanessa are data analysts at Marvel Studios. They are investigating how much people are looking forward to watching the upcoming Spider-Man: No Way Home across three consecutive occasions (September, October, and November). They recruited 5 students at UC Merced and let them record how excited they are to see the movie each month.
+
+### Which statistical analysis should be performed?
+
+### What are the null and alternative hypotheses?
+
+---
+
+# Do it together
+
+## `\(H_0: \mu_{Sep} = \mu_{Oct} = \mu_{Nov}\)` &lt;br&gt; `\(\rightarrow\)` The means of the degree of excitement are the same across the three months
+
+## `\(H_1\)`: Not all `\(\mu_{Month}\)` are equal &lt;br&gt; `\(\rightarrow\)` All the means of the degree of excitement are not equal
+
+## Let's use `\(\alpha\)`-level (i.e., significance level) of 0.05.
+
+---
+
+# Do it together
+
+## From now on, we will fill in the ANOVA table
+
+&lt;br&gt;
+
+## Do you remember Sum of Squares (SS)?
+
+### ANOVA `\(\rightarrow\)` Analysis of Variance `\(\rightarrow\)` Variance &lt;br&gt; `\(\rightarrow\)` Sum of squares divided by the degrees of freedom `\(\rightarrow\)` SS is important &lt;br&gt; `\(\rightarrow\)` We separate SS into different sources `\(\rightarrow\)` In general, separation into between and within
+
+---
+
+# Do it together
+
+## Separating SS
+
+### One-way ANOVA `\(\rightarrow\)` `\(SS_{Tot.} = SS_{Bet.} + SS_{With.}\)`
+
+### Two-way ANOVA `\(\rightarrow\)` `\(SS_{Tot.} = SS_{F1} + SS_{F2} + SS_{Int.} + SS_{With.}\)`
+
+### One-way repeated measures ANOVA `\(\rightarrow\)` `\(SS_{Tot.} = SS_{Bet.} + SS_{Subj.} + SS_{Err.}\)`
+
+### **REMEMBER**: `\(SS_{With.}=SS_{Subj.}+SS_{Err.}\)` in case of one-way RM ANOVA
+
+## Rule applies to the degrees of freedom!
+
+---
+
+# Do it together
+
+### Our data
+
+&lt;center&gt;
+&lt;img src="img/lab12-1.png" width=1000&gt;
+&lt;/center&gt;
+
+---
+
+# Do it together
+
+### Our data in a different way
+
+&lt;center&gt;
+&lt;img src="img/lab12-2.png" width=590&gt;
+&lt;/center&gt;
+
+---
+
+# Do it together
+
+### We need these means
+
+&lt;center&gt;
+&lt;img src="img/lab12-3.png" width=1000&gt;
+&lt;/center&gt;
+
+---
+
+# Do it together
+
+### `\(SS_{Bet.} \rightarrow\)` subtract grand mean from the mean of each level/condition `\(\rightarrow\)` 25.6
+
+&lt;center&gt;
+&lt;img src="img/lab12-4.png" width=585&gt;
+&lt;/center&gt;
+
+---
+
+# Do it together
+
+### `\(SS_{With.} \rightarrow\)` subtract the mean of each level/condition from individual scores `\(\rightarrow\)` 36
+
+&lt;center&gt;
+&lt;img src="img/lab12-5.png" width=585&gt;
+&lt;/center&gt;
+
+---
+
+# Do it together
+
+### `\(SS_{Subj.} \rightarrow\)` subtract grand mean from the mean of subjects `\(\rightarrow\)` 15.6
+
+&lt;center&gt;
+&lt;img src="img/lab12-6.png" width=580&gt;
+&lt;/center&gt;
+
+---
+
+# Do it together
+
+### Fill in the ANOVA table
+### **REMEMBER**: `\(SS_{With.}=SS_{Subj.}+SS_{Err.}\)` in case of one-way RM ANOVA &lt;br&gt; That is, `\(SS_{Err.}=SS_{With.}-SS_{Subj.}\)`
+
+&lt;center&gt;
+&lt;img src="img/lab12-7.png" width=1000&gt;
+&lt;/center&gt;
+
+---
+
+# Do it together
+
+### Fill in the ANOVA table
+### **REMEMBER**: `\(SS_{With.}=SS_{Subj.}+SS_{Err.}\)` in case of one-way RM ANOVA &lt;br&gt; That is, `\(SS_{Err.}=SS_{With.}-SS_{Subj.}=36-15.6=20.4\)`
+
+&lt;center&gt;
+&lt;img src="img/lab12-8.png" width=1000&gt;
+&lt;/center&gt;
+
+---
+
+# Do it together
+
+### F-table associed with df1 of 2 and df2 of 8
+
+&lt;center&gt;
+&lt;img src="img/lab12-9.png" width=300&gt;
+&lt;/center&gt;
+
+---
+
+# Do it together
+
+### Decision: reject or fail to reject the null hypothesis? `\(\rightarrow F_{observed} &gt; F_{critical}\)` 
+
+&lt;center&gt;
+&lt;img src="img/lab12-8.png" width=1000&gt;
+&lt;/center&gt;
+
+### `\(H_0: \mu_{Sep} = \mu_{Oct} = \mu_{Nov}\)` &lt;br&gt; `\(\rightarrow\)` The means of the degree of excitement are the same across the three months &lt;br&gt; `\(\rightarrow\)` Reject `\(H_0\)`
+
+---
+
+# Do it together
+
+## Effect size for repeated measures ANOVA: Partial eta-squared `\(\eta^2_{partial}\)`
+
+### `\(\Large \eta^2_{partial} = \frac{SS_{Bet.}}{SS_{Bet.}+SS_{Err.}}\)`
+
+---
+
+# Do it together
+
+## Effect size for repeated measures ANOVA: Partial eta-squared `\(\eta^2_{partial}\)`
+
+&lt;center&gt;
+&lt;img src="img/lab12-8.png" width=1000&gt;
+&lt;/center&gt;
+
+### `\(\eta^2_{partial} = \frac{SS_{Bet.}}{SS_{Bet.}+SS_{Err.}} = \frac{25.6}{25.6+20.4}=\frac{25.6}{46}=0.56\)`
+
+### Interpretation: Months explain 56% of the variance in excitement
+
+---
+
+# Before you go home...
+
+## Any questions or comments?
+
+---
+
+# Happy Thanksgiving!!!
+
+&lt;center&gt;
+&lt;img src="img/kakao-week12.jpeg" width=500&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
