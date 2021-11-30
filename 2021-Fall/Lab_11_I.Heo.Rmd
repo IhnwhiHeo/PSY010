@@ -28,53 +28,31 @@ output:
 
 ---
 
-# ANOVA: A big idea
+# Factorial ANOVA
 
 ## Big idea
 
 ### Goal is to compare the means of the dependent variables across different categories of the independent variables
 
-### Comparing the happiness level between UC Merced, Merced College, and Merced High School
-
-### We can collectively term these three groups as a school type, which is a grouping variable
-
-### Such a grouping variable becomes an independent variable, also referred to as a factor
+<center>
+<img src="img/lab7-difficultstat.jpeg" width=450>
+</center>
 
 ---
 
-# ANOVA: A big idea
+# Factorial ANOVA
 
-## Factor
-
-### Independent variable in ANOVA, which is a grouping variable
-
-### e.g., school type
-
-## Level
-
-### The number of categories in a factor
-
-### e.g., UC Merced, Merced College, and Merced High School
-
----
-
-# ANOVA: A big idea
-
-## N-way ANOVA (# of factors)
+## N-way (or N-factor) ANOVA (# of factors)
 
 ### There are N independent variables (IVs = factors = grouping variables)
 
-### N = 1 $\rightarrow$ One-way ANOVA = ANOVA with 1 IV
+### N = 1 $\rightarrow$ One-way ANOVA = ANOVA with 1 IV <br> $\rightarrow$ One hypothesis
 
-### N = 2 or more $\rightarrow$ Factorial ANOVA $\rightarrow$ Start to consider interactions
-
-## A $\times$ B $\times$ C $\times$ ... $\times$ D ANOVA (# of levels)
-
-### 4 $\times$ 4 $\times$ 4 ANOVA = ANOVA with 3 IVs, each with 4 levels
+### N = 2 or more $\rightarrow$ Factorial ANOVA $\rightarrow$ Start to consider interactions <br> $\rightarrow$ Multiple hypotheses
 
 ---
 
-# ANOVA: A big idea
+# Factorial ANOVA
 
 ## Two-way ANOVA <br> $\rightarrow$ null hypothesis $H_0$: Nothing is going on. No effect (no difference)!
 
@@ -86,7 +64,7 @@ output:
 
 ---
 
-# ANOVA: A big idea
+# Factorial ANOVA
 
 ## Two-way ANOVA <br> $\rightarrow$ alternative hypothesis $H_1$: Something is going on. There is an effect!
 
@@ -120,46 +98,201 @@ output:
 
 ### Effect size $\rightarrow$ How big our differences are
 
-<br>
+---
+
+# Effect
 
 ## Main effect and interaction effect are also about 'differences'!
 
----
+### Remember, ANOVA is all about comparing means...
 
-# Main effect
+## Working example
 
-## Remember, ANOVA is all about comparing means...
+### Two-way ANOVA where two factors are school type and region
 
-### That said, we are **mainly** interested in **mean differences**
+### Dependent variable: Happiness
 
----
-
-# Main effect
-
-## Main effect $\rightarrow$ mean difference
-
-### Specifically, mean differences across the levels of one factor
-
-### If we are comparing whether there are differences in the mean happiness level across UC Merced, Merced College, and Merced High School, we are investigating the main effect!
-
-### Because we compare mean differences across the levels (3 groups) of one factor (school type)
+### School type (UC Merced and Merced College) & Region (California and Massachusetts)
 
 ---
 
 # Main effect
 
+## Mean differences across the levels of a single factor
+
+### An effect of a single factor averaged across levels of the other factors
+
+### Whether there are mean differences in happiness between UC Merced and Merced College <br>(or between California and Massachusetts)
+
+### Differences in marginal means
+
+## N-way ANOVA $\rightarrow$ There are N main effects
+
+### Two-way ANOVA $\rightarrow$ Two main effects!
+
+---
+
+# Main effect
+
+## Mean differences across the levels of a single factor
+
+### An effect of a single factor averaged across levels of the other factors
+
+### Differences in marginal means
+
+<center>
+<img src="img/lab11-1.png">
+</center>
+
+---
+
+# Main effect
+
+## Mean differences across the levels of a single factor
+
+### An effect of a single factor averaged across levels of the other factors
+
+### Differences in marginal means
+
+<center>
+<img src="img/lab11-2.png">
+</center>
+
+---
+
+# Main effect
+
+## Mean differences across the levels of a single factor
+
+### An effect of a single factor averaged across levels of the other factors
+
+### Differences in marginal means
+
+<center>
+<img src="img/lab11-3.png">
+</center>
+
+---
+
+# Main effect
+
+<center>
+<img src="img/lab11-4.png" width = 760>
+</center>
+
+---
+
+# Main effect
+
+<center>
+<img src="img/lab11-5.png" width = 760>
+</center>
+
+---
+
+# Main effect
+
+<center>
+<img src="img/lab11-6.png" width = 760>
+</center>
+
+---
+
+# Interaction effect
+
+## If an effect of a single factor differs across levels of the other factors
+
+### Mean differences at each level of one factor change across the levels of the other factors
+
+### Whether the mean differences in happiness between two levels of school type (or region) change across the levels of region (or school type)
+
+### Differences in differences $\rightarrow$ unparalleled lines
+
+## N-way ANOVA $\rightarrow$ There are $2^N−N−1$ interaction effects
+
+### Two-way ANOVA $\rightarrow$ One interaction effect!
+
+---
+
+# Interaction effect
+
+## If an effect of a single factor differs across levels of the other factors
+
+### Mean differences at each level of one factor change across the levels of the other factors
+
+### Differences in differences $\rightarrow$ unparalleled lines
+
+<center>
+<img src="img/lab11-3.png">
+</center>
+
+---
+
+# Interaction effect
+
+<center>
+<img src="img/lab11-7.png" width = 760>
+</center>
+
+---
+
+# Do it together (Example 1)
+
+<center>
+<img src="img/lab11-8.png" width = 760>
+</center>
+
+---
+
+# Do it together (Example 2)
+
+<center>
+<img src="img/lab11-9.png" width = 760>
+</center>
+
+---
+
+# Do it together (Example 3)
+
+<center>
+<img src="img/lab11-10.png" width = 760>
+</center>
+
+---
+
+# Do it together (Example 4)
+
+<center>
+<img src="img/lab11-11.png" width = 760>
+</center>
+
+---
+
+# Do it together
+
+## Answer key
+
+<center>
+<img src="img/lab11-12.png" width = 1000>
+</center>
 
 ---
 
 # Note
 
-## Whenever we say there are whether main effect or interaction effect, this does not necessarily mean these effects are statistically significant. It is enough for us to suspect there might be.
+## Whenever we say there are whether main effect or interaction effect, <br> this does not necessarily mean these effects are statistically significant
+
+## It is enough for us to suspect there might be
+
+## To check statistical significance <br> $\rightarrow$ *p*-value < $\alpha$ $\rightarrow$ Observed F value > Critical F value
 
 ---
 
-# Before you go home...
+# Before you close...
 
 ## Any questions or comments?
+
+### Shoot emails to iheo2@ucmerced.edu
 
 ---
 
