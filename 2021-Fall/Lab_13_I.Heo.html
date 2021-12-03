@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Analysis of Psychological Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ihnwhi Heo (iheo2@ucmerced.edu)" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="merced.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide, title-slide
+
+# Analysis of Psychological Data
+## <br/>Lab 13. We Go Together: Correlation and Regression
+### Ihnwhi Heo (<a href="mailto:iheo2@ucmerced.edu" class="email">iheo2@ucmerced.edu</a>)
+### Quantitative Methods, Measurement, and Statistics<br>Website: <a href="https://ihnwhiheo.github.io" class="uri">https://ihnwhiheo.github.io</a><br>Office: <a href="https://ucmerced.zoom.us/j/2093557522" class="uri">https://ucmerced.zoom.us/j/2093557522</a> (Friday 1:30 - 3:30 pm)
+
+---
+
+
+# Announcement
+
+## Assignment 5 is due December 7 (next Tuesday)
+
+## Exam 3 is on December 9 (next Thursday)
+
+### Prepare for the correct scantron form (see next slide) `\(\rightarrow\)` Otherwise, you get a score of 0
+
+### Work individually or in pairs
+
+### Bring pencil, eraser, pen, calculator, notes, F-table, correlation table
+
+---
+
+# Announcement
+
+## Scantron form (red and large one)
+
+&lt;center&gt;
+&lt;img src="img/lab8-scantron.png" width=540&gt;
+&lt;/center&gt;
+
+---
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### Correlation
+
+### Regression
+
+### ... and Metascience
+
+## Do it together
+
+---
+
+# It's been a long, long semester
+
+&lt;center&gt;
+&lt;img src="img/lab13-nopsy010.jpg"&gt;
+&lt;/center&gt;
+
+---
+
+# It's been a long, long semester
+
+## What you've learned...
+
+### Fundamentals (design, measurement, analysis), different research designs (experimental, quasi-experimental, correlational), descriptive vs. inferential statistics, measurement scale (nominal, ordinal, interval, ratio), data visualization (bar chart, pie chart, histogram, scatterplot), central tendency (mean, median, mode), variability (range, variance, standard deviation), population parameters vs. sample statistics, normal distribution, z-score, central limit theorem, standard error, (frequentist) null hypothesis significance testing, significance level, p-value, z-test, test-statistic, effect size (Cohen's d, eta-squared, partial eta-squared), z-table, t-test (one-sample, independent-sample, related-sample), t-table, type I and type II error, power, one-way ANOVA (sum of squares, mean square, F-value), F-table, factorial ANOVA, repeated measures ANOVA, correlation, correlation table, regression
+
+---
+
+# Correlation
+
+.pull-left[
+## Do you remember scatterplot?
+
+### Shows how two variables are related
+
+
+```r
+plot(mtcars$wt, mtcars$mpg,
+   main="Scatterplot Example",
+   xlab="Car Weight ",
+   ylab="Miles Per Gallon ", pch=19)
+```
+]
+
+.pull-right[
+![](Lab_13_I.Heo_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Correlation
+
+## Goal
+
+### To describe a relationship between two variables (i.e., how two variables are related)
+
+## Real-life examples
+
+### The longer time you drive, the more gasoline your will need
+
+### The taller the person is, the heavier the person is
+
+---
+
+# Correlation
+
+## Does not mean causation
+
+&lt;center&gt;
+&lt;img src="img/lab13-cormeme.jpeg" width=750&gt;
+&lt;/center&gt;
+
+---
+
+# Correlation
+
+## Two key ideas
+
+### Direction `\(\rightarrow\)` positive vs. negative
+
+### Strength `\(\rightarrow\)` perfect vs. strong vs. weak vs. no
+
+## Need to know how to interpret
+
+### Scatterplot
+
+### Correlation coefficient
+
+---
+
+# Correlation
+
+## Direction
+
+### Positive `\(\rightarrow\)` As one variable increases, the other increases
+
+### Negative `\(\rightarrow\)` As one variable increases, the other decreases
+
+## Strength
+
+### How much two variables covary `\(\rightarrow\)` Degree to which the data fall on a straight line
+
+---
+
+# Correlation
+
+## Scatterplot
+
+### One variable is on the x-axis whereas the other variable is on the y-axis
+
+## Correlation coefficient
+
+### Correlation coefficient ragnes from -1 (perfect negative) to 1 (perfect positive)
+
+### Mathematically, correlation is a standardized covariance `\(\rightarrow\)` We'll do it together
+
+---
+
+# Correlation
+
+## Direction and strength
+
+&lt;center&gt;
+&lt;img src="img/lab13-corexample.png"&gt;
+&lt;/center&gt;
+
+---
+
+# Correlation
+
+## Pearson's correlation coefficient `\(\leftarrow\)` standardized covariance
+
+### A statistic that describes the direction and the strength of the linear relationship
+
+`\(\LARGE r_{XY} = \frac{Cov_{XY}}{s_Xs_Y} = \frac{SS_{XY}}{\sqrt{SS_XSS_Y}}\)`
+
+### `\(SS_{XY}\)` is the sum of products of deviations for two variables X and Y
+### `\(SS_{X}\)` is the sum of squares for one variable X
+### `\(SS_{Y}\)` is the sum of squares for the other variable Y
+
+---
+
+# Do it together - Correlation
+
+## Adrian, Alejandro, Amy, and Roberto are data scientists at Instagram. They want to investigate whether the length of time spent on Instagram is correlated with satisfaction with the app. They collect a sample of 5 Instagram users. Each user reported length of time on the app per week and satisfaction with the app on a 1-5 scale (1 = not satisfied, 5 - very satisfied).
+
+## Test whether Pearson's correlation coefficient is significant for this dataset.
+
+---
+
+# Do it together - Correlation
+
+### 1. State the null and alternative hypothesis
+
+### 2. Choose your `\(\alpha\)`-level of significance
+
+### 3. Determine the degrees of freedom
+
+### 4. Locate the critical r value
+
+### 5. Calculate Pearson's r
+
+### 6. Compare observed and critical r value `\(\rightarrow\)` Reject the null hypothesis if the absolute value of the observed r value is greater than the absolute value of the critical r value
+
+---
+
+# Do it together - Correlation
+
+## State hypotheses
+
+### `\(H_0:\:r=0\)` &lt;br&gt;The population correlation coefficient between time and satisfaction is zero.
+
+### `\(H_1:\:r\neq0\)` &lt;br&gt;The population correlation coefficient between time and satisfaction is different from zero.
+
+## Choose your `\(\alpha\)`-level of significance
+
+### Let's use two-tailed test with the `\(\alpha\)`-level of 0.05
+
+---
+
+# Do it together - Correlation
+
+## Determine the degrees of freedom
+
+### `\(df=n-2\)` where `\(n\)` refers to the sample size
+
+## In our example...
+
+### `\(df=n-2=5-2=3\)`
+
+---
+
+# Do it together - Correlation
+
+## Locate the critical r value, which is 0.878
+
+&lt;center&gt;
+&lt;img src="img/lab13-cor3.png"&gt;
+&lt;/center&gt;
+
+---
+
+# Do it together - Correlation
+
+## Pearson's correlation coefficient `\(\leftarrow\)` standardized covariance
+
+### Formula is as follows:
+
+`\(\LARGE r_{XY} = \frac{Cov_{XY}}{s_Xs_Y} = \frac{SS_{XY}}{\sqrt{SS_XSS_Y}}\)`
+
+### `\(SS_{XY}\)` is the sum of products of deviations for two variables X and Y
+### `\(SS_{X}\)` is the sum of squares for one variable X
+### `\(SS_{Y}\)` is the sum of squares for the other variable Y
+
+---
+
+# Do it together - Correlation
+
+## Data in a table
+
+&lt;center&gt;
+&lt;img src="img/lab13-cor1.png"&gt;
+&lt;/center&gt;
+
+---
+
+# Do it together - Correlation
+
+.pull-left[
+## Scatterplot of the Instagram example
+
+
+```r
+insta.time &lt;- c(18,8,4,16,10)
+insta.satis &lt;- c(5,3,1,4,2)
+insta.dat &lt;- data.frame(insta.time, insta.satis)
+
+plot(insta.dat$insta.time, insta.dat$insta.satis,
+   main="Relationship between hours spent
+   on Instagram and satisfaction",
+   xlab="Hours spent on Instagram",
+   ylab="Satisfaction with Instagram App", pch=19)
+```
+]
+
+.pull-right[
+![](Lab_13_I.Heo_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Do it together - Correlation
+
+## Calculation
+
+&lt;center&gt;
+&lt;img src="img/lab13-cor2.png"&gt;
+&lt;/center&gt;
+
+---
+
+# Do it together - Correlation
+
+## Correlation coefficient
+
+`\(\LARGE r_{XY} = \frac{Cov_{XY}}{s_Xs_Y} = \frac{SS_{XY}}{\sqrt{SS_XSS_Y}} = \frac{34}{\sqrt{132.8 \times 10}}=0.933\)`
+
+## What does this correlation coefficient signal to us?
+
+### Direction: Positive
+
+### Strength: Strong
+
+---
+
+# Do it together - Correlation
+
+## Make a decision
+
+### `\(r_{obt} = 0.933\)`
+
+### `\(r_{crit} = 0.878\)`
+
+### Reject `\(H_0\)` if p-value &lt; `\(\alpha\)` &lt;br&gt; `\(\Longleftrightarrow\)` `\(|r_{obt}| &gt; |r_{crit}|\)` `\(\Longleftrightarrow\)` `\(|0.933| &gt; |0.878|\)` `\(\Longleftrightarrow\)` `\(0.933 &gt; 0.878\)`
+
+### In our example, the null hypothesis is rejected. The conclusion is that there is a significant positive correlation between time spent on the Instagram app and satisfaction with the app (i.e., correlation is not 0, there is an effect).
+
+---
+
+# Do it together - Correlation
+
+## Effect size `\(\rightarrow\)` Coefficient of determination `\(r^2\)`
+
+### `\(r^2 = 0.933^2 = 0.87049\)`
+
+## Interpretation
+
+### The length of time spent on the Instagram app accounted for 87.05% of the variance in the user's satisfaction with the Instagram app
+
+### You can also say in the other way around `\(\rightarrow\)` User's satisfaction with the Instagram app accounts for 87.05% of the variance in the length of time spent on the Instagram app
+
+---
+
+# Regression
+
+## Goal
+
+### To predict values of the dependent variable (Y) from values of the independent variable (X)
+
+## Real-life examples
+
+### If you drive 5 hours, how many gallons of gasoline you will need
+
+### If the person is 6 feet, how heavy the person would be
+
+---
+
+# Regression
+
+## Regression equation
+
+### `\(\hat{Y}_i = b + mX_i\)`
+
+### `\(\hat{Y}_i\)` is a value of Y on the regression line for individual i `\(\rightarrow\)` predicted value of Y &lt;br&gt; `\(X_i\)` is an individual i's value on the independent variable
+
+### `\(b\)` is an intercept `\(\rightarrow\)` a value of `\(Y\)` when `\(X\)` is 0 &lt;br&gt; `\(m\)` is a slope `\(\rightarrow\)` rate of change in `\(Y\)` when `\(X\)` changes by one-unit
+
+### Regression equation about `\(\hat{Y}_i\)` is also referred to as a prediction line
+
+---
+
+# Regression
+
+## Regression equation
+
+### `\({Y}_i = b + mX_i + e_i\)`
+
+### `\(Y_i\)` is an individual i's value on the dependent variable `\(\rightarrow\)` observed value of Y &lt;br&gt; `\(X_i\)` is an individual i's value on the independent variable
+
+### `\(b\)` is an intercept `\(\rightarrow\)` a value of `\(Y\)` when `\(X\)` is 0 &lt;br&gt; `\(m\)` is a slope `\(\rightarrow\)` rate of change in `\(Y\)` when `\(X\)` changes by one-unit
+
+### `\(e_i\)` an error (a residual) for individual i `\(\Longleftrightarrow\)` `\(e_i = Y_i - \hat{Y}_i\)`
+
+---
+
+# Regression
+
+## Slope `\(\rightarrow\)` `\(m\)`
+
+### `\(\hat{Y}_i = b + mX_i\)`
+
+### Rate of change in `\(Y\)` when `\(X\)` changes by one-unit
+
+### `\(m = \frac{SS_{XY}}{SS_X} = \frac{\Sigma_{i=1}^{N}(X_i-\bar{X})(Y_i-\bar{Y})}{\Sigma_{i=1}^{N}(X_i-\bar{X})^2}\)`
+
+### `\(SS_{XY}\)` is the sum of products of deviations for two variables X and Y &lt;br&gt; `\(SS_{X}\)` is the sum of squares for one variable X
+
+---
+
+# Regression
+
+## Intercept `\(\rightarrow\)` `\(b\)`
+
+### `\(\hat{Y}_i = b + mX_i\)`
+
+### A value of `\(Y\)` when `\(X\)` is 0
+
+### After you calculate the slope, input `\(\bar{X}\)` to `\(X_{i}\)` and `\(\bar{Y}\)` to `\(\hat{Y}_{i}\)` to obtain the intercept
+
+---
+
+# Do it together - Regression
+
+## Blanca, Carly, Karla, Bianca, and Anthoni, another team of data scientists at Instagram, wants to investigate if hours spent on Instagram predicts satisfaction with the Instagram app. They use the same data collected for correlation analysis.
+
+## In this case...
+
+### Dependent variable (Y): satisfaction
+
+### Independent variable (X): Hours
+
+---
+
+# Do it together - Regression
+
+## Several values we obtained before
+
+&lt;center&gt;
+&lt;img src="img/lab13-cor2.png"&gt;
+&lt;/center&gt;
+
+---
+
+# Do it together - Regression
+
+## Regression equation
+
+`\(\hat{Y}_i = b + mX_i\)`
+
+## Slope
+
+`\(m = \frac{SS_{XY}}{SS_X} = \frac{\Sigma_{i=1}^{N}(X_i-\bar{X})(Y_i-\bar{Y})}{\Sigma_{i=1}^{N}(X_i-\bar{X})^2} = \frac{34}{132.8} = 0.26 \rightarrow \hat{Y}_i = b + 0.256X_i\)`
+
+## Intercept
+
+Input `\(\bar{X}\)` to `\(X_{i}\)` and `\(\bar{Y}\)` to `\(\hat{Y}_{i}\)` `\(\rightarrow 3 = b + 0.256 \times 11.2 \rightarrow b = 3 - 0.256 \times 11.2 = 0.133\)` 
+
+---
+
+# Do it together - Regression
+
+## Regression equation
+
+### `\(\hat{Y}_i = 0.133 + 0.256X_i\)`
+
+## Interpretation
+
+### Slope of 0.256 `\(\rightarrow\)` 1-hour increase in using the Instagram app leads to 0.256 point increase in satisfaction
+
+### Intercept of 0.133 `\(\rightarrow\)` When the independent variable (i.e., hours) is 0, the dependent variable (i.e., satisfaction) is 0.133
+
+---
+
+# Do it together - Regression
+
+## Regression equation
+
+### `\(\hat{Y}_i = 0.133 + 0.256X_i\)`
+
+## Let's do prediction
+
+### If the user uses 10 hours, what would be a satisfaction score? Input 10 to X
+
+`\(\hat{Y}_i = 0.133 + 0.256X_i = 0.133 + 0.256 \times 10 = 0.133 + 2.56 = 2.693\)` 
+
+### Satisfaction score would be 2.693
+
+---
+
+# Regression
+
+## Other measures you can compute (FYI; details are on lecture slides)
+
+### Correlation coefficient between the dependent variable and the independent variable
+
+### `\(r_{XY} = \frac{SS_{XY}}{\sqrt{SS_X SS_Y}}\)`
+
+### Coefficient of determination `\(\rightarrow\)` Proportion of variance in Y explained by X
+
+### `\(r_{XY}^2 = (r_{XY})^2 = r_{XY} \times r_{XY}\)`
+
+---
+
+# Regression
+
+## Other measures you can compute (FYI; details are on lecture slides)
+
+### Sum of squares in the DV explained by IV
+
+### `\(r^2 SS_Y = r^2 \times SS_Y\)`
+
+### Sum of squares in the DV NOT explained by IV
+
+### `\((1-r^2) SS_Y = (1-r^2) \times SS_Y\)`
+
+---
+
+# Regression
+
+## Other measures you can compute (FYI; details are on lecture slides)
+
+### We can use ANOVA to examine if IV predicts DV well
+
+### F-value `\(\rightarrow\)` test statistics
+
+### `\(F = \frac{MS_{regression}}{MS_{residual}} = \frac{\frac{SS_{regression}}{df_{regression}}}{\frac{SS_{residual}}{df_{residual}}} = \frac{\frac{r^2 SS_Y}{1}}{\frac{(1-r^2) SS_Y}{N-2}}\)`
+
+### where `\(N\)` is the sample size
+
+---
+
+# Regression
+
+## Other measures you can compute (FYI; details are on lecture slides)
+
+### Standard error
+
+### Standard deviation or distance that data points in a sample fall from the regression line
+
+### `\(S_{e} = \sqrt{MS_{residual}} = \frac{SS_{residual}}{df_{residual}} = \frac{(1-r^2)SS_Y}{N-2}\)`
+
+### where `\(N\)` is the sample size
+
+---
+
+# Metascience
+
+## Recall that I kept emphasizing the problems of p-values... but why?
+
+---
+
+# Metascience
+
+## The replication crisis in psychology
+
+### Only 36% of the significant findings (p-value below 0.05) was replicable
+
+&lt;center&gt;
+&lt;img src="img/lab13-repro1.png" width=700&gt;
+&lt;/center&gt;
+
+---
+
+# Metascience
+
+## One of the problems pointed out was the p-value
+
+&lt;center&gt;
+&lt;img src="img/lab13-repro2.png" width=1000&gt;
+&lt;/center&gt;
+
+---
+
+# Metascience
+
+## A movement to redefine or ban the p-value
+
+&lt;center&gt;
+&lt;img src="img/lab13-repro3.png" width=600&gt;
+&lt;/center&gt;
+
+---
+
+# Metascience
+
+## Stop using p-values!
+
+### Prof. Dr. Rens van de Schoot (https://www.youtube.com/watch?v=owb5A8lVS0o)
+
+&lt;center&gt;
+&lt;img src="img/lab13-stopp.png" width=600&gt;
+&lt;/center&gt;
+
+---
+
+# Metascience
+
+## Open Science Movement
+
+&lt;center&gt;
+&lt;img src="img/lab13-repro4.png" width=590&gt;
+&lt;/center&gt;
+
+---
+
+# Concluding remark
+
+## What I want to convey to you...
+
+### Be critical in doing everything in your life
+
+### Be transparent in doing science
+
+### Enjoy your undergraduate life (jealous of you!)
+
+---
+
+# Before we finish our semester...
+
+## Any **FINAL** questions or comments?
+
+&lt;center&gt;
+&lt;img src="img/kakao-week13-message.jpeg" width=400&gt;
+&lt;/center&gt;
+
+---
+
+# Thank you for the great semester! Cheers!
+
+&lt;center&gt;
+&lt;img src="img/kakao-week13.jpeg" width=500&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
