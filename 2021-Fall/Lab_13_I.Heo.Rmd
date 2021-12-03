@@ -186,7 +186,7 @@ $\LARGE r_{XY} = \frac{Cov_{XY}}{s_Xs_Y} = \frac{SS_{XY}}{\sqrt{SS_XSS_Y}}$
 
 # Do it together - Correlation
 
-## Adrian, Alejandro, Amy, and Roberto are data scientists at Instagram. They want to investigate whether the length of time spent on Instagram is correlated with satisfaction with the app. They collect a sample of 5 Instagram users. Each user reported length of time on the app per week and satisfaction with the app on a 1-5 scale (1 = not satisfied, 5 - very satisfied).
+## Adrian, Alejandro, Amy, and Roberto are data scientists at Instagram. They want to investigate whether the length of time spent on Instagram is correlated with satisfaction with the app. They collect a sample of 5 Instagram users. Each user reported length of time on the app per week and satisfaction with the app on a 1-5 scale (1 = not satisfied, 5 = very satisfied).
 
 ## Test whether Pearson's correlation coefficient is significant for this dataset.
 
