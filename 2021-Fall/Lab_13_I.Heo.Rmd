@@ -531,7 +531,7 @@ $\hat{Y}_i = 0.133 + 0.256X_i = 0.133 + 0.256 \times 10 = 0.133 + 2.56 = 2.693$
 
 ### Standard deviation or distance that data points in a sample fall from the regression line
 
-### $S_{e} = \sqrt{MS_{residual}} = \frac{SS_{residual}}{df_{residual}} = \frac{(1-r^2)SS_Y}{N-2}$
+### $S_{e} = \sqrt{MS_{residual}} = \sqrt{\frac{SS_{residual}}{df_{residual}}} = \sqrt{\frac{(1-r^2)SS_Y}{N-2}}$
 
 ### where $N$ is the sample size
 
