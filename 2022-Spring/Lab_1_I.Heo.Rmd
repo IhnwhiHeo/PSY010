@@ -154,7 +154,7 @@ Every psychology course focuses on statistics.
 ### Entire set of cases <br> $\rightarrow$ What we want to have & We use a *parameter* to describe population's characteristics <br> ex. Whole students at UC Merced
 
 ## Sample
-### Subset of cases <br> $\rightarrow$ What we usually have & We use a *statistic* to describe sample's characteristics <br> PSY 010 lab mates
+### Subset of cases <br> $\rightarrow$ What we usually have & We use a *statistic* to describe sample's characteristics <br> ex. PSY 010 lab mates
 
 ---
 
