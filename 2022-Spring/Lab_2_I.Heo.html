@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Analysis of Psychological Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ihnwhi Heo (iheo2@ucmerced.edu)" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="merced.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide, title-slide
+
+# Analysis of Psychological Data
+## <br/>Lab 2. Play the Game with Data: Visualization and Distribution
+### Ihnwhi Heo (<a href="mailto:iheo2@ucmerced.edu" class="email">iheo2@ucmerced.edu</a>)
+### Quantitative Methods, Measurement, and Statistics<br>Website: <a href="https://ihnwhiheo.github.io" class="uri">https://ihnwhiheo.github.io</a><br>Office: <a href="https://ucmerced.zoom.us/j/2093557522" class="uri">https://ucmerced.zoom.us/j/2093557522</a> (Thursday 3:30 - 5:30 pm)
+
+---
+
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### Data visualization
+
+### Distribution
+
+## Food for thought
+
+---
+
+# Some announcements
+
+## Lab 3 on February 9 is in person
+
+### Check your where your lecture room is!
+
+## HW 1 (20 points) deadline
+
+### February 3 (Thursday) at 11:59 pm on CatCourses
+
+## Attendance check
+
+### Find one example of data visualization in your life and let me know what it is to my email **iheo2@ucmerced.edu** (simple description is enough) - hint: NEWS? Instagram? Facebook?
+
+---
+
+# Data visualization
+
+## You can find everywhere *visualized* data
+
+&lt;center&gt;
+&lt;img src="img/lab2-datvis-example.jpeg" width=700&gt;
+&lt;/center&gt;
+
+---
+
+# Data visualization
+
+## You want something fun?!
+
+&lt;center&gt;
+&lt;img src="img/lab2-fundatvis.gif" width=900&gt;
+&lt;/center&gt;
+
+---
+
+# Data visualization
+
+## Why do we visualize data?
+### Once we collect data about variables of interest, &lt;br&gt;we want to present important **information** from the data!
+
+## What did we learn?
+- Frequency table
+  - Simple frequency distribution
+  - Cumulative frequency distribution
+  - Relative percent distribution
+  - Cumulative percent distribution
+- Bar chart
+- Pie chart
+- Histogram
+
+---
+
+# Data visualization
+
+## Frequency table
+### To show the count or the percentage of data points
+
+&lt;br&gt;
+
+## How can we distinguish different kinds of frequencies
+
+|                     | Count                  | Percentage                    |
+| :------------------ | :--------------------- | :---------------------------- |
+| **Non Accumulation**| Simple frequency distribution | Relative percent distribution | 
+| **Accumulation**    | Cumulative frequency distribution | Cumulative percent distribution | 
+
+---
+
+# Data visualization
+
+## Frequency table
+
+### Itamar, a data scientist at Marvel Studios, collected responses from 100 people to the question: "Spider-Man: No Way Home was great fun".
+
+&lt;center&gt;
+&lt;img src="img/lab2-responses.png" width=2000&gt;
+&lt;/center&gt;
+
+---
+
+# Data visualization
+
+## Bar chart
+
+### We use rectangular bars to represent the count or the proportion of qualitative data
+
+&lt;br&gt;
+
+## Shall we see some examples?
+
+### R code from https://www.statmethods.net/
+
+---
+
+# Data visualization
+
+.pull-left[
+## Can you understand the plot?
+
+```r
+# Simple Bar Plot
+counts &lt;- table(mtcars$gear)
+barplot(counts, main="Car Distribution",
+   xlab="Number of Gears")
+```
+]
+
+.pull-right[
+![](Lab_2_I.Heo_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Data visualization
+
+.pull-left[
+## Horizontal bars are possible.
+
+```r
+# Simple Horizontal Bar Plot with Added Labels
+counts &lt;- table(mtcars$gear)
+barplot(counts, main="Car Distribution",
+        horiz=TRUE,
+  names.arg=c("3 Gears", "4 Gears", "5 Gears"))
+```
+]
+
+.pull-right[
+![](Lab_2_I.Heo_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Data visualization
+
+.pull-left[
+## You can even stack the bars!
+
+```r
+# Stacked Bar Plot with Colors and Legend
+counts &lt;- table(mtcars$vs, mtcars$gear)
+barplot(counts,
+main="Car Distribution by Gears and Engines",
+xlab="Number of Gears",
+col=c("darkblue","darkgreen"),
+legend = rownames(counts))
+```
+
+]
+
+.pull-right[
+![](Lab_2_I.Heo_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Data visualization
+
+## Pie chart
+
+### We use circular pies to represent the count or the proportion of qualitative data
+
+&lt;br&gt;
+
+## Shall we see some examples?
+
+### R code from https://www.statmethods.net/
+
+---
+
+# Data visualization
+
+.pull-left[
+## Can you understand the plot?
+
+```r
+# Simple Pie Chart
+slices &lt;- c(16, 12, 4, 10, 8)
+lbls &lt;-
+  c("US", "Canada", "Mexico",
+    "South Korea", "Vetnam")
+pie(slices, labels = lbls,
+    main="Pie Chart of Countries")
+```
+]
+
+.pull-right[
+![](Lab_2_I.Heo_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Data visualization
+
+.pull-left[
+## Let me present the 3D plot.
+
+```r
+# 3D Exploded Pie Chart
+library(plotrix)
+slices &lt;- c(16, 12, 4, 10, 8)
+lbls &lt;- c("US", "Canada", "Mexico",
+    "South Korea", "Vetnam")
+pie3D(slices,labels=lbls,explode=0.1,
+   main="Pie Chart of Countries ")
+```
+]
+
+.pull-right[
+![](Lab_2_I.Heo_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Data visualization
+
+## Histogram
+
+### We use bins or buckets to represent the frequency distribution of data
+
+&lt;br&gt;
+
+## Shall we see some examples?
+
+### R code from https://www.statmethods.net/
+
+---
+
+# Data visualization
+
+.pull-left[
+## Can you understand the plot?
+
+```r
+# Simple Histogram
+hist(mtcars$mpg, col="lightblue")
+# mpg stands for miles per gallon
+```
+]
+
+.pull-right[
+![](Lab_2_I.Heo_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Data visualization
+
+.pull-left[
+## I increased the number of breaks.
+
+```r
+# Colored Histogram with Different Number of Bins
+hist(mtcars$mpg, breaks=12, col="lightblue")
+```
+### Depending on the number of breaks, &lt;br&gt;we can either gain or lose important information inherent in data.
+]
+
+.pull-right[
+![](Lab_2_I.Heo_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Data visualization
+
+.pull-left[
+## Superimpose the curve that fits the data! `\(\rightarrow\)` Smoothing
+
+```r
+# Add a Normal Curve (Thanks to Peter Dalgaard)
+x &lt;- mtcars$mpg
+h&lt;-hist(x, breaks=10, col="lightblue",
+   xlab="Miles Per Gallon",
+   main="Histogram with Normal Curve")
+xfit&lt;-seq(min(x),max(x),length=40)
+yfit&lt;-dnorm(xfit,mean=mean(x),sd=sd(x))
+yfit &lt;- yfit*diff(h$mids[1:2])*length(x)
+lines(xfit, yfit, col="navy", lwd=2)
+```
+]
+
+.pull-right[
+![](Lab_2_I.Heo_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Distribution
+
+## Nerdy stat jokes...
+
+&lt;center&gt;
+&lt;img src="img/paranormal.jpeg" width = 800&gt;
+&lt;/center&gt;
+
+---
+
+# Distribution
+
+## Why does distribution matter?
+
+### An intuitive way to understand how different values of a variable are spread over
+
+## We learned...
+
+### Symmetric distribution &lt;br&gt; Positive skewness (*aka*. positively skewed distribution) &lt;br&gt; Negative skewness (*aka*. negatively skewed distribution) &lt;br&gt; Unimodal distribution &lt;br&gt; Bimodal distribution &lt;br&gt; ... and ~~Paranormal distribution~~
+
+---
+
+# Distribution
+
+.pull-left[
+## Symmetric Distribution
+
+```r
+set.seed(2093557522)
+x = rnorm(10000,0,1)
+hist(x, main="Symmetric Distribution", freq=FALSE,
+     breaks=50)
+lines(density(x), col='blue', lwd=3)
+```
+- Symmetrical around the **center**
+- Any phenomenon that we would **normally** expect to observe
+- Actually... this distribution has its name *normal distribution*
+]
+
+.pull-right[
+![](Lab_2_I.Heo_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Distribution
+
+.pull-left[
+## Positive Skewness
+
+```r
+set.seed(322)
+x = rbeta(10000,2,5)
+hist(x, main="Positive Skewness", freq=FALSE)
+lines(density(x), col='blue', lwd=3)
+```
+- Trailing off toward the right end
+- Score distribution of difficult exams
+]
+
+.pull-right[
+![](Lab_2_I.Heo_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Distribution
+
+.pull-left[
+## Negative Skewness
+
+```r
+set.seed(322)
+x = rbeta(10000,5,2)
+hist(x, main="Negative Skewness", freq=FALSE)
+lines(density(x), col='blue', lwd=3)
+```
+- Trailing off toward the left end
+- Score distribution of easy exams
+]
+
+.pull-right[
+![](Lab_2_I.Heo_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Distribution
+
+.pull-left[
+## Unimodal distribution
+
+```r
+set.seed(2093557522)
+x = rnorm(10000,0,1)
+hist(x, main="Unimodal Distribution", freq=FALSE,
+     breaks=50)
+lines(density(x), col='blue', lwd=3)
+```
+- One single peak in the distribution
+]
+
+.pull-right[
+![](Lab_2_I.Heo_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Distribution
+
+.pull-left[
+## Bimodal distribution
+
+```r
+set.seed(20220201)
+library(truncnorm)
+nn &lt;- 10000
+sims &lt;- c(rtruncnorm(nn/2, a=1, b=5, mean=2, sd=.5),
+      rtruncnorm(nn/2, a=1, b=5, mean=4, sd=.5))
+hist(sims, main="Bimodal Distribution", freq=FALSE,
+     breaks=50)
+lines(density(sims), col='blue', lwd=3)
+```
+- Two peaks in the distribution
+]
+
+.pull-right[
+![](Lab_2_I.Heo_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Food for thought
+
+## Case 1
+
+Melanie, a researcher at FDA, is interested in how people in California give ratings to the taste of ranch pizza. She collected 20 people in LA and made a frequency table on the pizza ratings (1 through 5).
+
+| Ratings | Frequency (Freq.)  | Cumulative Freq. | Relative Percent | Cumulative Percent |
+| :------ | :--------- | :------------------- | :----------------- | :------------------- |
+| 1 | 3 |  |  
+| 2 | 2 |  | 
+| 3 | 5 |  | 
+| 4 | 6 |  |  
+| 5 | 4 |  | 
+
+## Can you answer below?
+- Can you fill in the blanks of cumulative freq., relative percent, and cumulative percent?
+- What is the cumulative percent for giving 2 stars or lower?
+
+---
+
+# Food for thought
+
+## Case 2
+
+Itamar has been working as a data scientist at Marvel Studios. Since Spider-Man: No Way Home is on the screen, she wants to know how people rate the movie. She made a questionnaire on which score you want to give to the movie. The score ranges from 0 to 100 on a 5-point scale. So far, she has collected responses from 19 people, which is summarized in the following table:
+
+| Scores | 65 | 70 | 75 | 80 | 85 | 90 | 95 | 100 |
+| :------ | :----- | :----- | :------- | :----- | :----- | :----- | :----- | :----- |
+| **Frequency** | 1 | 1 | 1 | 2 | 3 | 2 | 4 | 5 |
+
+## Can you answer below?
+- How does the distribution look like? Symmetrically distributed, negatively skewed, or positively skewed? Is it unimodal or bimodal?
+
+---
+
+# Before you go home...
+
+## Lab materials are available at
+
+### https://github.com/IhnwhiHeo/PSY010
+
+&lt;br&gt;
+
+## Any questions or comments?
+
+### Office hours or my email
+
+---
+
+# Thanks! Have a wonderful day!
+
+&lt;center&gt;
+&lt;img src="img/kakao-week2.png" width=750&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
