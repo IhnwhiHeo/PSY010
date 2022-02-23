@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Analysis of Psychological Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ihnwhi Heo (iheo2@ucmerced.edu)" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="merced.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide, title-slide
+
+# Analysis of Psychological Data
+## <br/>Lab 4. Warming Up for Statistical Inference: Probability and Normal Distribution
+### Ihnwhi Heo (<a href="mailto:iheo2@ucmerced.edu" class="email">iheo2@ucmerced.edu</a>)
+### Quantitative Methods, Measurement, and Statistics<br>Website: <a href="https://ihnwhiheo.github.io" class="uri">https://ihnwhiheo.github.io</a><br>Office: <a href="https://ucmerced.zoom.us/j/2093557522" class="uri">https://ucmerced.zoom.us/j/2093557522</a> (Thursday 3:30 - 5:30 pm)
+
+---
+
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### Probability
+
+### Normal distribution and z-score
+
+## Group activity
+
+## (Optional) Reviewing exam 1
+
+---
+
+# Prelude
+
+## In a couple of weeks, we do **inferential statistics** (aka. statistical inference)
+
+## Statistical inference
+
+### Let's make a best guess and test if that guess is true &lt;br&gt; `\(\rightarrow\)` Estimation and hypothesis testing
+
+## Statement of probability
+
+### We speak of statistical inference in the statement of probability &lt;br&gt; (e.g., Hypothesis testing: what is the probability of obtaining a result that is as extreme as the one we have observed, if the hypothesis were true? `\(\rightarrow\)` *p*-value)
+
+---
+
+# Probability
+
+## Tells us how likely something is to happen
+`\(\LARGE P(A)=\frac{\#\;of\;outcomes\;classified\;as\;A}{Total\;\#\;of\;possible\;outcomes}\)`
+
+### When you flip a coin, what is the probability of the head?
+
+### Say there are 5 candidates for the UC Merced student president election, and Giwon is one of the candidates. What is the probability that a vote goes for Giwon?
+
+---
+
+# Probability
+
+.pull-left[
+## Expressed as proportion &lt;br&gt; (area under the curve)
+
+```r
+# Generate data
+set.seed(322)
+x=seq(-4,4,length=200)
+y=dnorm(x)
+plot(x,y,type="l", lwd=2, col="blue",
+     xlab="", ylab="")
+x=seq(-4,1,length=200)
+y=dnorm(x)
+polygon(c(-4,x,1),c(0,y,0),col="gray")
+```
+
+- Imagine this is a distribution of scores
+- Grey area is the probability that the score is 1 or below if we randomly pick one score
+- Are you familiar with this distribution?
+
+]
+
+.pull-right[
+![](Lab_4_I.Heo_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Normal distribution
+
+.pull-left[
+## How it looks like
+
+```r
+set.seed(2093557522)
+x = rnorm(10000,0,1)
+hist(x, main="Normal Distribution", freq=FALSE, breaks=50)
+lines(density(x), col='blue', lwd=3)
+abline(v = c(mean(x),median(x)),
+       col=c("green", "red"),
+       lty=c(2,2), lwd=c(3, 3))
+```
+- Any continuous phenomenon that we would **normally** expect to observe
+- Trailing off toward both left and right ends
+- Bell-shaped &amp; symmetrical around the **center**
+- Mean = Median = Mode
+- Gaussian distribution (in honor of Carl Friedrich Gauss)
+]
+
+.pull-right[
+![](Lab_4_I.Heo_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Normal distribution
+
+## Normal distribution is determined by two factors
+
+### Mean &amp; standard deviation
+
+&lt;br&gt;
+
+## In theory, you can have infinite shapes of normal distributions
+
+### Really? Can you believe it?
+
+---
+
+# Normal distribution
+
+## Examples...
+
+### What if we want to compare scores from different normal distributions...
+
+&lt;center&gt;
+&lt;img src="img/lab4-normdistmany.png" width = 609&gt;
+&lt;/center&gt;
+
+---
+
+# Z-score
+
+## Why do we use the z-score?
+### So far, we have played with the single distribution.
+
+### We oftentimes want to compare values from **different normal distributions**!
+
+---
+
+# Z-score 
+
+## How to calculate it?
+
+### Population `\(\rightarrow \Large z = \frac{X-\mu}{\sigma}\)`
+
+### Sample `\(\rightarrow \Large z = \frac{X-\bar{X}}{s}\)`
+
+### If the variable is normally distributed, we can convert any value on that variable into a z-score!
+
+---
+
+# Z-score
+
+## Interpretation
+
+### How far certain values are from the mean (in standard deviation units)
+
+- Say you have a z-score of 1.5. What does this mean?
+- Say you have 4 z-scores (-7.0, 0.5, 2.3, and 6.5). Which score is the farthest from the mean?
+
+---
+
+# Z-score
+
+## We know how to calculate the z-score and interpret it...
+
+&lt;br&gt;
+
+## What should you do next?
+
+---
+
+# Z-score
+
+## OPEN YOUR EYES to see the Z-table...
+
+&lt;center&gt;
+&lt;img src="img/z-table-meme.jpeg" width = 500&gt;
+&lt;/center&gt;
+
+---
+
+# Z-score
+
+## OPEN YOUR EYES to see the Z-table...
+
+&lt;center&gt;
+&lt;img src="img/lab4-ztable.png" width = 679&gt;
+&lt;/center&gt;
+
+---
+
+# Group activity
+
+## Case study
+
+Julia is interested in programming, so she took two programming courses in R and Python. Her achievement was excellent, but she is curious to compare her performances. In the R programming course, she scored 125 where the mean and the standard deviation are 80 and 18. In the Python programming course, she scored 92 where the mean and the standard deviation are 72 and 10. Assume that all scores are normally distributed.
+
+## Can you answer below?
+- What are the z-scores in each programming course? Can you interpret them?
+- What is the percentage of students who did better than Julia in the Python programming course?
+- What course did Julia showed a better achievement relative to her classmates?
+- Say Ihnwhi also took the same R programming course, and his z-score is -0.25.
+    - What would be Ihnwhi's raw score?
+    - What is the percentage of students who did worse than Ihnwhi?
+    - What is the percentage of students who scored between Julia and Ihnwhi?
+
+---
+
+# Before you go home...
+
+## Lab materials are available at
+
+### https://github.com/IhnwhiHeo/PSY010
+
+&lt;br&gt;
+
+## Any questions or comments?
+
+### Office hours or my email
+
+---
+
+# Thanks! Have a good one!
+
+&lt;center&gt;
+&lt;img src="img/kakao-week4.png" width=800&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
