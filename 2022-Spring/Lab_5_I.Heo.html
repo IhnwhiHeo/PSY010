@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Analysis of Psychological Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ihnwhi Heo (iheo2@ucmerced.edu)" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="merced.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide, title-slide
+
+# Analysis of Psychological Data
+## <br/>Lab 5. Warming Up for Statistical Inference: Sampling Distribution of the Mean
+### Ihnwhi Heo (<a href="mailto:iheo2@ucmerced.edu" class="email">iheo2@ucmerced.edu</a>)
+### Quantitative Methods, Measurement, and Statistics<br>Website: <a href="https://ihnwhiheo.github.io" class="uri">https://ihnwhiheo.github.io</a><br>Office: <a href="https://ucmerced.zoom.us/j/2093557522" class="uri">https://ucmerced.zoom.us/j/2093557522</a> (Thursday 3:30 - 5:30 pm)
+
+---
+
+
+# Some announcements
+
+## Homework 3 is due on March 8 (Tuesday)
+
+### Don't forget to submit it on CatCourses
+
+&lt;br&gt;
+
+## Exam 2 is on March 17 (Thursday)
+
+---
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### Sampling distribution of the mean
+
+## Do it together
+
+## Q&amp;A session for homework 3
+
+---
+
+# Prelude
+
+## From now onwards, we do **inferential statistics** (*aka.* **statistical inference**)
+
+### Logic is crucial, so do not hesitate to ask me questions if anything is unclear!
+
+### Let's prove ourselves against this grumpy cat!
+
+&lt;center&gt;
+&lt;img src="img/psystatmeme.jpeg" width=400&gt;
+&lt;/center&gt;
+
+---
+
+# Statistical inference
+
+## Main idea
+
+### Let's make a best guess and test if that guess is true &lt;br&gt; `\(\rightarrow\)` Estimation and hypothesis testing
+
+## Where do we start?
+
+### Let's assume we are interested in one sample statistic (e.g., a sample mean) &lt;br&gt; and have the distribution of all the possible sample statistics &lt;br&gt; `\(\rightarrow\)` Sampling distribution
+
+### In this course, we are mainly interested in **a sample mean** &lt;br&gt; `\(\rightarrow\)` Sampling distribution of the mean
+
+---
+
+# Statistical inference
+
+## Statement of probability
+
+### We speak of statistical inference in the statement of probability &lt;br&gt; `\(\rightarrow\)` If we have a normal distribution, we can calculate the area under the curve &lt;br&gt; (i.e., proportion, probability) using z-scores
+
+&lt;br&gt;
+
+## A closer look at the probability
+
+### When you flip a coin, what is the probability of the head (or the front side)? &lt;br&gt; What if you saw three heads in a row during the first three tosses?
+
+---
+
+# Statistical inference
+
+## Repeated sampling
+### Probability is about after a large number of times
+### As the number of trials (infinitely) increases, the average outcome converges to the expected probability ~~(frequentist statistics)~~
+
+## Why important to take this into account?
+### Helpful to understand the precise idea of frequentist statistical inference &lt;br&gt; (e.g., confidence interval, *p*-value)
+
+---
+
+# Statistical inference
+
+## Remember...
+
+### Let's make a best guess and test if that guess is true &lt;br&gt; `\(\rightarrow\)` Estimation and hypothesis testing
+
+&lt;br&gt;
+
+## What are we interested in?
+
+### We are interested in one sample mean &lt;br&gt; `\(\rightarrow\)` We want to know the population mean using sample means &lt;br&gt; `\(\rightarrow\)` Sampling distribution of the mean
+
+---
+
+# Central limit theorem
+
+## Why important?
+
+### We can apply probabilistic and statistical methods **that work for normal distributions** to problems involving other types of distributions
+
+## Characteristics
+
+### No matter what the original distribution looks like, the sampling distribution approximates a normal distribution if the sample sizes are larger enough
+
+### Code from https://www.analyticsvidhya.com/blog/2019/05/statistics-101-introduction-central-limit-theorem/
+
+---
+
+# Central limit theorem
+
+.pull-left[
+## Your population is distributed as
+
+```r
+set.seed(322) # Replicability
+dat &lt;- rbeta(10000, 3, 25) # Data simulation
+hist(dat, col ="lightblue", main="Population distribution", xlab = "Simulated data") # Plot a histogranm
+```
+
+## The population mean is 0.107.
+]
+
+.pull-right[
+![](Lab_5_I.Heo_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Central limit theorem
+
+.pull-left[
+## Collect a sample of 20 values, calculate the mean, and plot it... We repeat this 10000 times
+
+```r
+set.seed(20210923) # Replicability
+sample.20 &lt;- c() # Empty vector
+n=10000 # The number of iterations
+for (i in 1:n) {
+  sample.20[i] = mean(sample(dat,20, replace = TRUE))}
+hist(sample.20, col ="lightblue", main="Sample size = 20",xlab = "Simulated data", xlim=c(0.07, 0.17))
+abline(v = mean(sample.20), col = "Red")
+```
+
+## The mean is 0.107.
+]
+
+.pull-right[
+![](Lab_5_I.Heo_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Central limit theorem
+
+.pull-left[
+## Collect a sample of 50 values, calculate the mean, and plot it... We repeat this 10000 times
+
+```r
+set.seed(20210923) # Replicability
+sample.50 &lt;- c() # Empty vector
+n=10000 # The number of iterations
+for (i in 1:n) {
+  sample.50[i] = mean(sample(dat,50, replace = TRUE))}
+hist(sample.50, col ="lightblue", main="Sample size = 50",xlab = "Simulated data", xlim=c(0.07, 0.17))
+abline(v = mean(sample.50), col = "Red")
+```
+
+## The mean is 0.107.
+]
+
+.pull-right[
+![](Lab_5_I.Heo_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Central limit theorem
+
+.pull-left[
+## Collect a sample of 500 values, calculate the mean, and plot it... We repeat this 10000 times
+
+```r
+set.seed(20210923) # Replicability
+sample.500 &lt;- c() # Empty vector
+n=10000 # The number of iterations
+for (i in 1:n) {
+  sample.500[i] = mean(sample(dat,500, replace = TRUE))}
+hist(sample.500, col ="lightblue", main="Sample size = 500",xlab = "Simulated data", xlim=c(0.07, 0.17))
+abline(v = mean(sample.500), col = "Red")
+```
+
+## The mean is 0.107.
+]
+
+.pull-right[
+![](Lab_5_I.Heo_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Sampling distribution of the mean
+
+## What is it?
+
+### A distribution of the sample means (i,e., collection of the means of possible samples)
+
+&lt;br&gt;
+
+## What can we do?
+
+### Use the z-table since the sampling distribution is **normally distributed**
+
+### Calculate the probability of getting any specific mean from a random sample
+
+---
+
+# Sampling distribution of the mean
+
+## Sampling error
+
+### Deviation of the (each) sample mean from the population mean
+
+`\(\huge \mu_{\bar{X}}-\mu\)`
+
+---
+
+# Sampling distribution of the mean
+
+## Standard error of the mean
+
+### Standard deviation of the sampling distribution of the mean (spread of sampling error)
+
+### Typical distance that a sample mean deviates from the population mean
+
+`\(\huge \sigma_{\bar{X}}=\frac{\sigma}{\sqrt{n}}\)`
+
+---
+
+# Sampling distribution of the mean
+
+## Is normally distributed with...
+
+### Mean
+
+`\(\huge \mu_{\bar{X}} = \mu\)`
+
+### Standard deviation
+
+`\(\huge \sigma_{\bar{X}}=\frac{\sigma}{\sqrt{n}}\)`
+
+---
+
+# Sampling distribution of the mean
+
+## Some tips
+
+### Be careful which area under the curve (i.e., proportion, probability) is needed before looking at the z-table
+
+### Be careful whether you are using a raw score or a sample mean
+
+---
+
+# Do it together
+
+## Q13 in HW3
+
+### A researcher records the following response times (in seconds) to a visual stimulus. Assuming these data are normally distributed, N(23, 3.1), what is the probability that participants responded in 20 seconds or less? (Note. round z score to 2 decimal places.)
+
+### - .1660 &lt;br&gt; - .6660 &lt;br&gt; - The probability is not listed in the unit normal table. &lt;br&gt; - .3340
+
+---
+
+# Do it together
+
+## Q19 in HW3
+
+### A researcher selects a sample of 49 participants from a population with a mean of 12 and a standard deviation of 3.5. What is the probability of selecting a sample mean of 13 or larger from this population?
+
+### - equal to the probability of selecting a score above the mean &lt;br&gt; - greater than .31 &lt;br&gt; - about one standard deviation below the mean &lt;br&gt; - less than .03
+
+---
+
+# Q&amp;A session for homework 3
+
+&lt;center&gt;
+&lt;img src="img/kakao-week8.jpeg" width=499&gt;
+&lt;/center&gt;
+
+---
+
+# Before you go home...
+
+## Lab materials are available at
+
+### https://github.com/IhnwhiHeo/PSY010
+
+&lt;br&gt;
+
+## Any questions or comments?
+
+### Office hours or my email
+
+---
+
+# Thanks! Have a good one!
+
+&lt;center&gt;
+&lt;img src="img/kakao-week5.jpeg" width=719&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

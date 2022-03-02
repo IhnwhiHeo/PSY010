@@ -48,7 +48,7 @@ output:
 
 ### Statistical inference
 
-Idea 1: Let's make a best guess and test if that guess is true $\rightarrow$ Estimation (point and interval) and hypothesis testing
+Idea 1: Let's make a best guess about a population parameter and test if that guess is true $\rightarrow$ Estimation (point and interval) and hypothesis testing
 
 Idea 2: Let's assume we have one sample statistic of interest (e.g., sample mean) and the distribution of all the possible sample statistics $\rightarrow$ Central limit theorem, sampling distribution, sampling error, and standard error
 
