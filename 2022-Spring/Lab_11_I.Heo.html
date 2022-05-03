@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Analysis of Psychological Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ihnwhi Heo (iheo2@ucmerced.edu)" />
+    <script src="libs/header-attrs-2.13/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="merced.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide, title-slide
+
+# Analysis of Psychological Data
+## <br/>Lab 11. We Go Together, Even Beyond the Horizon: Correlation, Regression, and Metascience
+### Ihnwhi Heo (<a href="mailto:iheo2@ucmerced.edu" class="email">iheo2@ucmerced.edu</a>)
+### Quantitative Methods, Measurement, and Statistics<br>Website: <a href="https://ihnwhiheo.github.io" class="uri">https://ihnwhiheo.github.io</a><br>Office: <a href="https://ucmerced.zoom.us/j/2093557522" class="uri">https://ucmerced.zoom.us/j/2093557522</a> (Thursday 3:30 - 5:30 pm)
+
+---
+
+
+# Some announcements
+
+## Assignments
+
+### Extra credit assignments 2 is due April 29 (Friday)
+
+### Homework 6 is due May 3 (Tuesday)
+
+&lt;br&gt;
+
+## Final exam
+
+### Exam 3 is on May 5 (Thursday)
+
+### Scantron!
+
+---
+
+# Some announcements
+
+## Scantron form
+
+&lt;center&gt;
+&lt;img src="img/lab8-scantron.png" width=540&gt;
+&lt;/center&gt;
+
+---
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### Correlation
+
+### Regression
+
+### ... and Metascience
+
+&lt;br&gt; 
+
+## Do it together
+
+---
+
+# It's been a long, long semester
+
+&lt;center&gt;
+&lt;img src="img/lab13-nopsy010.jpg"&gt;
+&lt;/center&gt;
+
+---
+
+# It's been a long, long semester
+
+## What you've learned...
+
+### Fundamentals (variables, statistic/parameter), descriptive vs. inferential statistics, measurement scale (nominal, ordinal, interval, ratio), data visualization (bar chart, pie chart, histogram, scatterplot), central tendency (mean, median, mode), variability (range, variance, standard deviation), normal distribution, z-score, central limit theorem, standard error, (frequentist) null hypothesis significance testing, significance level, p-value, z-test, test-statistic, effect size (Cohen's d, eta-squared, partial eta-squared, omega-squared), z-table, t-test (one-sample, independent-sample, related-sample), t-table, degrees of freedom, type I and type II error, statistical power, one-way ANOVA (sum of squares, mean square, F-value), F-table, two-way ANOVA, main effect, interaction effect, correlation, correlation table, coefficient of determination, regression, slope, intercept
+
+---
+
+# Correlation
+
+.pull-left[
+## Do you remember scatterplot?
+
+### Shows how two variables are related
+
+
+```r
+plot(mtcars$wt, mtcars$mpg,
+   main="Scatterplot Example",
+   xlab="Car Weight ",
+   ylab="Miles Per Gallon ", pch=19)
+```
+]
+
+.pull-right[
+![](Lab_11_I.Heo_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Correlation
+
+## Goal
+
+### To describe a relationship between two variables (i.e., how two variables are related)
+
+&lt;br&gt;
+
+## Real-life examples
+
+### The longer time you drive, the more gasoline your will need
+
+### The taller the person is, the heavier the person is
+
+---
+
+# Correlation
+
+## Does not mean causation
+
+&lt;center&gt;
+&lt;img src="img/lab13-cormeme.jpeg" width=750&gt;
+&lt;/center&gt;
+
+---
+
+# Correlation
+
+## Two key ideas
+
+### Direction `\(\rightarrow\)` positive vs. negative
+
+### Strength `\(\rightarrow\)` perfect vs. strong vs. weak vs. no
+
+&lt;br&gt;
+
+## Need to know how to interpret
+
+### Scatterplot
+
+### Correlation coefficient
+
+---
+
+# Correlation
+
+## Direction
+
+### Positive `\(\rightarrow\)` As one variable increases, the other increases
+
+### Negative `\(\rightarrow\)` As one variable increases, the other decreases
+
+&lt;br&gt;
+
+## Strength
+
+### How much two variables covary `\(\rightarrow\)` Degree to which the data fall on a straight line
+
+---
+
+# Correlation
+
+## Scatterplot
+
+### One variable is on the x-axis whereas the other variable is on the y-axis
+
+&lt;br&gt;
+
+## Correlation coefficient
+
+### Correlation coefficient ragnes from -1 (perfect negative) to 1 (perfect positive)
+
+---
+
+# Correlation
+
+## Direction and strength
+
+&lt;center&gt;
+&lt;img src="img/lab13-corexample.png"&gt;
+&lt;/center&gt;
+
+---
+
+# Correlation
+
+## Pearson's correlation coefficient
+
+### A statistic that describes the direction and the strength of the linear relationship
+
+`\(\LARGE r = \frac{SS_{XY}}{\sqrt{SS_XSS_Y}}\)`
+
+### `\(SS_{XY}\)` is the sum of products of deviations for two variables X and Y
+### `\(SS_{X}\)` is the sum of squares for one variable X
+### `\(SS_{Y}\)` is the sum of squares for the other variable Y
+
+---
+
+# Hypothesis teseting - Correlation
+
+### 1. State the null and alternative hypothesis
+
+### 2. Choose your `\(\alpha\)`-level of significance
+
+### 3. Determine the degrees of freedom
+
+### 4. Locate the critical r value
+
+### 5. Calculate Pearson's r
+
+### 6. Compare observed and critical r value `\(\rightarrow\)` Reject the null hypothesis if `\(|r_{obt}| &gt; |r_{crit}|\)`
+
+---
+
+# Hypothesis teseting - Correlation
+
+## State hypotheses
+
+### `\(H_0:\:r=0\)` &lt;br&gt;The population correlation coefficient is zero.
+
+### `\(H_1:\:r\neq0\)` &lt;br&gt;The population correlation coefficient is different from zero.
+
+## Choose your `\(\alpha\)`-level of significance
+
+### We usually use the `\(\alpha\)`-level of 0.05
+
+---
+
+# Hypothesis teseting - Correlation
+
+## Determine the degrees of freedom
+
+### `\(df=n-2\)` where `\(n\)` refers to the sample size
+
+---
+
+# Hypothesis teseting - Correlation
+
+## Locate the critical r value from the correlation table
+
+&lt;center&gt;
+&lt;img src="img/lab13-cor3.png" width = 760&gt;
+&lt;/center&gt;
+
+---
+
+# Hypothesis teseting - Correlation
+
+## Pearson's correlation coefficient `\(\leftarrow\)` standardized covariance
+
+### Formula is as follows:
+
+`\(\LARGE r = \frac{SS_{XY}}{\sqrt{SS_XSS_Y}}\)`
+
+### `\(SS_{XY}\)` is the sum of products of deviations for two variables X and Y
+### `\(SS_{X}\)` is the sum of squares for one variable X
+### `\(SS_{Y}\)` is the sum of squares for the other variable Y
+
+---
+
+# Effect size and R-squared
+
+## Effect size ( `\(r\)`)
+
+### 0.1 (small), 0.3 (medium), 0.5 (large)
+
+&lt;br&gt;
+
+## Coefficient of determination ( `\(r^2\)`)
+
+### The proportion of Y explained by X
+
+---
+
+# Do it together - Correlation
+
+&lt;center&gt;
+&lt;img src="img/kakao-week7.png" width=590&gt;
+&lt;/center&gt;
+
+---
+
+# Regression
+
+## Goal
+
+### To predict values of the dependent variable (Y) from values of the independent variable (X)
+
+&lt;br&gt;
+
+## Real-life examples
+
+### If you drive 5 hours, how many gallons of gasoline you will need
+
+### If the person is 6 feet, how heavy the person would be
+
+---
+
+# Regression
+
+## Regression equation
+
+### `\(Y' = a + bX\)`
+
+### `\(Y'\)` is a predicted value of the dependent variable `\(Y\)` &lt;br&gt; `\(X\)` is an individual value on the independent variable `\(X\)`
+
+### `\(a\)` is an intercept `\(\rightarrow\)` a value of `\(Y\)` when `\(X\)` is 0 &lt;br&gt; `\(b\)` is a slope `\(\rightarrow\)` rate of change in `\(Y\)` when `\(X\)` changes by one-unit (*aka*. steepness)
+
+---
+
+# Regression
+
+## Slope `\(\rightarrow\)` `\(b\)`
+
+### `\(Y' = a + bX\)`
+
+### Rate of change in `\(Y\)` when `\(X\)` changes by one-unit (*aka*. steepness of a regression line)
+
+### `\(b = \frac{SS_{XY}}{SS_X}\)`
+
+### `\(SS_{XY}\)` is the sum of products of deviations for two variables X and Y &lt;br&gt; `\(SS_{X}\)` is the sum of squares for one variable X
+
+---
+
+# Regression
+
+## Intercept `\(\rightarrow\)` `\(a\)`
+
+### `\(Y' = a + bX\)`
+
+### A value of `\(Y\)` when `\(X\)` is 0
+
+### `\(a = \bar{Y} - b\bar{X}\)`
+
+### `\(\bar{Y}\)` is the mean of the dependent variable `\(Y\)` &lt;br&gt; `\(\bar{X}\)` is the mean of the independent variable `\(X\)`
+
+---
+
+# Hypothesis testing - Regression
+
+## State hypotheses
+
+### `\(H_0:\:\beta=0\)` &lt;br&gt;Regression slope is 0 in the population (no effect) &lt;br&gt; The independent variable predicts nothing about the dependent variable
+
+### `\(H_1:\:\beta\neq0\)` &lt;br&gt;Regression slope is different from 0 in the population (there is an effect) &lt;br&gt; The independent variable predicts something about the dependent variable
+
+### `\(\beta\)` is the population regression slope
+
+---
+
+# Hypothesis testing - Regression
+
+## Choose your `\(\alpha\)`-level of significance
+
+### We usually use the `\(\alpha\)`-level of 0.05
+
+&lt;br&gt;
+
+
+## Compute the test-statistic
+
+### z-test or t-test depending on whether you know the population standard deviation
+
+
+---
+
+# Hypothesis testing - Regression
+
+## Make a decision
+
+### Refer to a z-table or t-table
+
+### Find a critical z-value or critical t-value
+
+
+## Reject the null hypothesis if
+
+### *p*-value &lt; `\(\alpha\)`-level
+
+### `\(|z_{obt}| &gt; |z_{crit}|\)` `\(\Longleftrightarrow\)` `\(|z_{obt}| &gt; |z_{crit}|\)`
+
+---
+
+# Do it together - Regression
+
+&lt;center&gt;
+&lt;img src="img/kakao-week6.jpeg" width=720&gt;
+&lt;/center&gt;
+
+---
+
+# Metascience
+
+## Recall that I kept emphasizing the problems of p-values... but why?
+
+---
+
+# Metascience
+
+## The replication crisis in psychology
+
+### Only 36% of the significant findings (p-value below 0.05) was replicable
+
+&lt;center&gt;
+&lt;img src="img/lab13-repro1.png" width=700&gt;
+&lt;/center&gt;
+
+---
+
+# Metascience
+
+## One of the problems pointed out was the p-value
+
+&lt;center&gt;
+&lt;img src="img/lab13-repro2.png" width=1000&gt;
+&lt;/center&gt;
+
+---
+
+# Metascience
+
+## A movement to redefine or ban the p-value
+
+&lt;center&gt;
+&lt;img src="img/lab13-repro3.png" width=600&gt;
+&lt;/center&gt;
+
+---
+
+# Metascience
+
+## Stop using p-values!
+
+### Prof. Dr. Rens van de Schoot (https://www.youtube.com/watch?v=owb5A8lVS0o)
+
+&lt;center&gt;
+&lt;img src="img/lab13-stopp.png" width=600&gt;
+&lt;/center&gt;
+
+---
+
+# Metascience
+
+## Open Science Movement
+
+&lt;center&gt;
+&lt;img src="img/lab13-repro4.png" width=590&gt;
+&lt;/center&gt;
+
+---
+
+# Concluding remark
+
+## What I want to convey to you...
+
+### Be critical in doing everything in your life
+
+### Be transparent in doing science
+
+### Enjoy your undergraduate life (jealous of you!)
+
+---
+
+# Before we finish our semester...
+
+## Any **FINAL** questions or comments?
+
+&lt;center&gt;
+&lt;img src="img/kakao-week13-message.jpeg" width=400&gt;
+&lt;/center&gt;
+
+---
+
+# Thank you for the great semester :) Cheers!
+
+&lt;center&gt;
+&lt;img src="img/kakao-week13.jpeg" width=500&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

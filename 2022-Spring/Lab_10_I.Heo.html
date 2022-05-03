@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Analysis of Psychological Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ihnwhi Heo (iheo2@ucmerced.edu)" />
+    <script src="libs/header-attrs-2.13/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="merced.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide, title-slide
+
+# Analysis of Psychological Data
+## <br/>Lab 10. Extending What We Have Learned: Two-Way ANOVA and Correlation
+### Ihnwhi Heo (<a href="mailto:iheo2@ucmerced.edu" class="email">iheo2@ucmerced.edu</a>)
+### Quantitative Methods, Measurement, and Statistics<br>Website: <a href="https://ihnwhiheo.github.io" class="uri">https://ihnwhiheo.github.io</a><br>Office: <a href="https://ucmerced.zoom.us/j/2093557522" class="uri">https://ucmerced.zoom.us/j/2093557522</a> (Thursday 3:30 - 5:30 pm)
+
+---
+
+
+# Some announcements
+
+## Boost your GPA
+
+### Extra credit assignments on April 21 &amp; April 28
+
+## Homework 6
+
+### Will be published tomorrow
+
+## Lab 11 (next Wednesday)
+
+### Will be our final lab meeting
+
+---
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### Two-Way ANOVA
+
+### Correlation
+
+&lt;br&gt;
+
+## Q&amp;A session
+
+---
+
+# ANOVA terminology
+
+## N-way ANOVA (# of factors)
+
+### There are N independent variables (IVs = factors = grouping variables = categorical variables)
+
+### N = 1 `\(\rightarrow\)` One-way ANOVA = ANOVA with 1 IV
+
+### N = 2 `\(\rightarrow\)` Two-way ANOVA = ANOVA with 2 IVs
+
+### N = 2 or more `\(\rightarrow\)` Factorial ANOVA `\(\rightarrow\)` Start to consider interactions
+
+---
+
+# ANOVA terminology
+
+## A `\(\times\)` B `\(\times\)` C `\(\times\)` ... `\(\times\)` D ANOVA (# of levels)
+
+### 4 `\(\times\)` 4 `\(\times\)` 4 ANOVA = ANOVA with 3 IVs, each with 4 levels
+
+### 3 `\(\times\)` 5 ANOVA = ANOVA with 2 IVs, one with 3 levels and the other with 5 levels
+
+### 4 `\(\times\)` 2 `\(\times\)` 5 ANOVA = ?
+
+---
+
+# Factorial ANOVA hypothesis
+
+## Two-way ANOVA &lt;br&gt; `\(\rightarrow\)` null hypothesis `\(H_0\)`: Nothing is going on. No effect (no difference)!
+
+### `\(H_0\)`: IV1 does not have a significant effect on DV &lt;br&gt; = Group means on DV across levels in IV1 are not different
+
+### `\(H_0\)`: IV2 does not have a significant effect on DV &lt;br&gt; = Group means on DV across levels in IV2 are not different
+
+### `\(H_0\)`: Interaction between IV1 and IV2 does not have a significant effect on DV
+
+---
+
+# Factorial ANOVA hypothesis
+
+## Two-way ANOVA &lt;br&gt; `\(\rightarrow\)` alternative hypothesis `\(H_1\)`: Something is going on. There is an effect!
+
+### `\(H_1\)`: IV1 has a significant effect on DV &lt;br&gt; = Group means on DV across levels in IV1 are different
+
+### `\(H_1\)`: IV2 has a significant effect on DV &lt;br&gt; = Group means on DV across levels in IV2 are different
+
+### `\(H_1\)`: Interaction between IV1 and IV2 has a significant effect on DV
+
+---
+
+# Factorial ANOVA table
+
+&lt;center&gt;
+&lt;img src="img/lab10-8.png" width=1000&gt;
+&lt;/center&gt;
+
+### Instead of calculating `\(SS_{AB}\)`, we use...
+
+### `\(SS_{Total}=SS_A+SS_B+SS_{AB}+SS_{Within}\)` In addition to this, also...
+
+### `\(df_{Total}=df_A+df_B+df_{AB}+df_{Within}\)`
+
+---
+
+# Factorial ANOVA table
+
+&lt;center&gt;
+&lt;img src="img/lab10-9.png" width=1000&gt;
+&lt;/center&gt;
+
+### Do you remember how to find the critical F-ratio in the F-table? :)
+
+---
+
+# Factorial ANOVA table
+
+## Effect size for factorial ANOVA: Partial eta-squared `\(\eta^2_{p}\)`
+
+### `\(\Large \eta^2_{pA} = \frac{SS_A}{SS_A+SS_{Within}}\)`
+
+### `\(\Large \eta^2_{pB} = \frac{SS_B}{SS_B+SS_{Within}}\)`
+
+### `\(\Large \eta^2_{pAB} = \frac{SS_{AB}}{SS_{AB}+SS_{Within}}\)`
+
+---
+
+# Factorial ANOVA table
+
+&lt;center&gt;
+&lt;img src="img/lab10-9.png" width=1000&gt;
+&lt;/center&gt;
+
+### For example, &lt;br&gt; `\(\eta^2_{pA} = \frac{SS_A}{SS_A+SS_{Within}} = \frac{54}{54+6} = \frac{54}{60} = .90\)`
+
+### Factor A accounts for 90% of the between-subjects variance in DV
+
+---
+
+# Effect
+
+## Wait... we have been using a word **effect** a lot...
+
+### Null hypothesis (no effect), alternative hypothesis (there is an effect), effect size...
+
+&lt;br&gt;
+
+## Let me ask you: What is an effect in statistics?
+
+---
+
+# Effect
+
+## Intuitively, effect means **'differences'** in statistics!
+
+### Null hypothesis `\(\rightarrow\)` no effect `\(\rightarrow\)` no difference
+
+### Alternative hypothesis `\(\rightarrow\)` there is an effect `\(\rightarrow\)` there is a difference
+
+### Effect size `\(\rightarrow\)` How big our differences are
+
+---
+
+# Effect
+
+## Main effect and interaction effect are also about 'differences'!
+
+### Remember, ANOVA is all about comparing means...
+
+## Working example
+
+### Two-way ANOVA where two factors are school type and region
+
+### Dependent variable: Happiness
+
+### School type (UC Merced and Merced College) &amp; Region (California and Massachusetts)
+
+---
+
+# Main effect
+
+## Mean differences across the levels of a single factor
+
+### An effect of a single factor averaged across levels of the other factors
+
+### Whether there are mean differences in happiness between UC Merced and Merced College &lt;br&gt;(or between California and Massachusetts)
+
+### Differences in marginal means
+
+## N-way ANOVA `\(\rightarrow\)` There are N main effects
+
+### Two-way ANOVA `\(\rightarrow\)` Two main effects!
+
+---
+
+# Main effect
+
+## Mean differences across the levels of a single factor
+
+### An effect of a single factor averaged across levels of the other factors
+
+### Differences in marginal means
+
+&lt;center&gt;
+&lt;img src="img/lab11-1.png"&gt;
+&lt;/center&gt;
+
+---
+
+# Main effect
+
+## Mean differences across the levels of a single factor
+
+### An effect of a single factor averaged across levels of the other factors
+
+### Differences in marginal means
+
+&lt;center&gt;
+&lt;img src="img/lab11-2.png"&gt;
+&lt;/center&gt;
+
+---
+
+# Main effect
+
+## Mean differences across the levels of a single factor
+
+### An effect of a single factor averaged across levels of the other factors
+
+### Differences in marginal means
+
+&lt;center&gt;
+&lt;img src="img/lab11-3.png"&gt;
+&lt;/center&gt;
+
+---
+
+# Main effect
+
+&lt;center&gt;
+&lt;img src="img/lab11-4.png" width = 760&gt;
+&lt;/center&gt;
+
+---
+
+# Main effect
+
+&lt;center&gt;
+&lt;img src="img/lab11-5.png" width = 760&gt;
+&lt;/center&gt;
+
+---
+
+# Main effect
+
+&lt;center&gt;
+&lt;img src="img/lab11-6.png" width = 760&gt;
+&lt;/center&gt;
+
+---
+
+# Interaction effect
+
+## If an effect of a single factor differs across levels of the other factors
+
+### Mean differences at each level of one factor change across the levels of the other factors
+
+### Whether the mean differences in happiness between two levels of school type (or region) change across the levels of region (or school type)
+
+### Differences in differences `\(\rightarrow\)` unparalleled lines
+
+## N-way ANOVA `\(\rightarrow\)` There are `\(2^N−N−1\)` interaction effects
+
+### Two-way ANOVA `\(\rightarrow\)` One interaction effect!
+
+---
+
+# Interaction effect
+
+## If an effect of a single factor differs across levels of the other factors
+
+### Mean differences at each level of one factor change across the levels of the other factors
+
+### Differences in differences `\(\rightarrow\)` unparalleled lines
+
+&lt;center&gt;
+&lt;img src="img/lab11-3.png"&gt;
+&lt;/center&gt;
+
+---
+
+# Interaction effect
+
+&lt;center&gt;
+&lt;img src="img/lab11-7.png" width = 760&gt;
+&lt;/center&gt;
+
+---
+
+# Note
+
+## Whenever we say there are whether main effect or interaction effect, &lt;br&gt; this does not necessarily mean these effects are statistically significant
+
+## It is enough for us to suspect there might be
+
+## To check statistical significance &lt;br&gt; `\(\rightarrow\)` *p*-value &lt; `\(\alpha\)` `\(\rightarrow\)` Observed F value &gt; Critical F value
+
+---
+
+# Descanso
+
+## Stretch yourself :)
+
+&lt;center&gt;
+&lt;img src="img/kakao-descanso.png" width=400&gt;
+&lt;/center&gt;
+
+---
+
+# Correlation
+
+.pull-left[
+## Do you remember scatterplot?
+
+### Shows how two variables are related
+
+
+```r
+plot(mtcars$wt, mtcars$mpg,
+   main="Scatterplot Example",
+   xlab="Car Weight ",
+   ylab="Miles Per Gallon ", pch=19)
+```
+]
+
+.pull-right[
+![](Lab_10_I.Heo_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Correlation
+
+## Goal
+
+### To describe a relationship between two variables (i.e., how two variables are related)
+
+## Real-life examples
+
+### The longer time you drive, the more gasoline your will need
+
+### The taller the person is, the heavier the person is
+
+---
+
+# Correlation
+
+## Does not mean causation
+
+&lt;center&gt;
+&lt;img src="img/lab13-cormeme.jpeg" width=750&gt;
+&lt;/center&gt;
+
+---
+
+# Correlation
+
+## Two key ideas
+
+### Direction `\(\rightarrow\)` positive vs. negative
+
+### Strength `\(\rightarrow\)` perfect vs. strong vs. weak vs. no
+
+&lt;br&gt;
+
+## Need to know how to interpret
+
+### Scatterplot
+
+### Correlation coefficient
+
+---
+
+# Correlation
+
+## Direction
+
+### Positive `\(\rightarrow\)` As one variable increases, the other increases
+
+### Negative `\(\rightarrow\)` As one variable increases, the other decreases
+
+&lt;br&gt;
+
+## Strength
+
+### How much two variables covary `\(\rightarrow\)` Degree to which the data fall on a straight line
+
+---
+
+# Correlation
+
+## Scatterplot
+
+### One variable is on the x-axis whereas the other variable is on the y-axis
+
+&lt;br&gt;
+
+## Correlation coefficient
+
+### Correlation coefficient ragnes from -1 (perfect negative) to 1 (perfect positive)
+
+---
+
+# Correlation
+
+## Direction and strength
+
+&lt;center&gt;
+&lt;img src="img/lab13-corexample.png"&gt;
+&lt;/center&gt;
+
+---
+
+# Correlation
+
+## Pearson's correlation coefficient
+
+### A statistic that describes the direction and the strength of the linear relationship
+
+`\(\LARGE r = \frac{SS_{XY}}{\sqrt{SS_XSS_Y}}\)`
+
+### `\(SS_{XY}\)` is the sum of products of deviations for two variables X and Y
+### `\(SS_{X}\)` is the sum of squares for one variable X
+### `\(SS_{Y}\)` is the sum of squares for the other variable Y
+
+---
+
+# Hypothesis teseting - Correlation
+
+### 1. State the null and alternative hypothesis
+
+### 2. Choose your `\(\alpha\)`-level of significance
+
+### 3. Determine the degrees of freedom
+
+### 4. Locate the critical r value
+
+### 5. Calculate Pearson's r
+
+### 6. Compare observed and critical r value `\(\rightarrow\)` Reject the null hypothesis if `\(|r_{obt}| &gt; |r_{crit}|\)`
+
+---
+
+# Hypothesis teseting - Correlation
+
+## State hypotheses
+
+### `\(H_0:\:r=0\)` &lt;br&gt;The population correlation coefficient between time and satisfaction is zero.
+
+### `\(H_1:\:r\neq0\)` &lt;br&gt;The population correlation coefficient between time and satisfaction is different from zero.
+
+## Choose your `\(\alpha\)`-level of significance
+
+### Let's use two-tailed test with the `\(\alpha\)`-level of 0.05
+
+---
+
+# Hypothesis teseting - Correlation
+
+## Determine the degrees of freedom
+
+### `\(df=n-2\)` where `\(n\)` refers to the sample size
+
+---
+
+# Hypothesis teseting - Correlation
+
+## Locate the critical r value from the correlation table
+
+&lt;center&gt;
+&lt;img src="img/lab13-cor3.png" width = 760&gt;
+&lt;/center&gt;
+
+---
+
+# Hypothesis teseting - Correlation
+
+## Pearson's correlation coefficient `\(\leftarrow\)` standardized covariance
+
+### Formula is as follows:
+
+`\(\LARGE r = \frac{SS_{XY}}{\sqrt{SS_XSS_Y}}\)`
+
+### `\(SS_{XY}\)` is the sum of products of deviations for two variables X and Y
+### `\(SS_{X}\)` is the sum of squares for one variable X
+### `\(SS_{Y}\)` is the sum of squares for the other variable Y
+
+---
+
+# Effect size and R-squared
+
+## Effect size ( `\(r\)`)
+
+### 0.1 (small), 0.3 (medium), 0.5 (large)
+
+&lt;br&gt;
+
+## Coefficient of determination ( `\(r^2\)`)
+
+### The proportion of Y explained by X
+
+---
+
+# Q&amp;A session
+
+## Any questions?
+
+&lt;center&gt;
+&lt;img src="img/kakao-study.png" width=630&gt;
+&lt;/center&gt;
+
+---
+
+# Before you go home...
+
+## Lab materials are available at
+
+### https://github.com/IhnwhiHeo/PSY010
+
+&lt;br&gt;
+
+## Any questions or comments?
+
+### Office hours or my email
+
+---
+
+# Thanks! Have a good one!
+
+&lt;center&gt;
+&lt;img src="img/kakao-week10.png" width=330&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

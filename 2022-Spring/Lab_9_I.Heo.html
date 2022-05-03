@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Analysis of Psychological Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ihnwhi Heo (iheo2@ucmerced.edu)" />
+    <script src="libs/header-attrs-2.13/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="merced.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide, title-slide
+
+# Analysis of Psychological Data
+## <br/>Lab 9. Hey Means, Don’t Be Mean To Us: One-Way ANOVA
+### Ihnwhi Heo (<a href="mailto:iheo2@ucmerced.edu" class="email">iheo2@ucmerced.edu</a>)
+### Quantitative Methods, Measurement, and Statistics<br>Website: <a href="https://ihnwhiheo.github.io" class="uri">https://ihnwhiheo.github.io</a><br>Office: <a href="https://ucmerced.zoom.us/j/2093557522" class="uri">https://ucmerced.zoom.us/j/2093557522</a> (Thursday 3:30 - 5:30 pm)
+
+---
+
+
+# Some announcements
+
+## Syllabus has been updated (see CatCourses)
+
+### No class on April 28
+
+### Extra credit assignments on April 21 &amp; April 28
+
+### Use this opportunity to boost your GPA!!!
+
+## Homework 5
+
+### Due April 19
+
+---
+
+# What are we going to do?
+
+## Recap to give you a big picture
+
+### One-Way ANOVA
+
+&lt;br&gt;
+
+## Do it together
+
+---
+
+# Statistical inference
+
+## Estimation
+
+### Let's make a best guess about the population parameter
+
+## Hypothesis testing
+
+### Let's test if our guess is really the case or not
+
+### Reject the null hypothesis when &lt;br&gt; *p*-value `\(&lt;\)` `\(\alpha\)`-level &lt;br&gt; `\(\Longleftrightarrow\)` `\(|z_{obt}| &gt; |z_{crit}|\)` `\(\Longleftrightarrow\)` `\(|t_{obt}| &gt; |t_{crit}|\)` `\(\Longleftrightarrow\)` `\(F_{obt} &gt; F_{crit}\)`
+
+---
+
+# Are you ready?
+
+## z-test, t-test, ANOVA, ANCOVA, MANOVA, MANCOVA, RM-ANCOVA... WHAT?!
+
+### Playing the game of statistical inference about population 'means'
+
+&lt;center&gt;
+&lt;img src="img/lab7-difficultstat.jpeg" width=500&gt;
+&lt;/center&gt;
+
+---
+
+# Big picture
+
+&lt;center&gt;
+&lt;img src="img/lab8-bigpic4.png" width=2000&gt;
+&lt;/center&gt;
+
+---
+
+# A gentle introduction to ANOVA
+
+## So far, we've only compared one group or two groups
+
+### z-test, one-sample t-test, independent-sample t-test, related-sample t-test
+
+&lt;br&gt;
+
+## What if we have three groups? &lt;br&gt; (e.g., Merced College, UC Merced, Merced High School)
+
+### ANOVA (= Analysis of Variance)
+
+---
+
+# A gentle introduction to ANOVA
+
+## Variables
+
+### So far, we think of our variables as different groups
+
+### For ANOVA, think of our variables as multiple levels of the same variable
+
+## That is,
+
+### Instead of comparing Merced College vs. UC Merced vs. Merced High School
+
+### We have 'school type' as the independent variable (*aka*. factor in ANOVA context)
+
+### The 'school type' has 3 levels: Merced College, UC Merced, and Merced High School
+
+---
+
+# One-way ANOVA
+
+## 'N-Way': N = the number of IV (or factor)
+
+### One-way ANOVA: ANOVA using one IV; factorial ANOVA: 2 or more IV
+
+&lt;center&gt;
+&lt;img src="img/lab8-anova.jpg" width=670&gt;
+&lt;/center&gt;
+
+---
+
+# One-way ANOVA
+
+## Hypotheses in ANOVA
+
+### Assuming there are three groups (Merced College, UC Merced, Merced High School)
+
+### Null hypothesis ( `\(H_0\)`)
+
+`\(\LARGE \mu_{MC} = \mu_{UCM} = \mu_{MHS}\)` `\(\Longleftrightarrow\)` `\(\LARGE \sigma_{\mu}^{2}=0\)`
+
+### Alternative hypothesis ( `\(H_1\)`)
+
+### At least one pair has a different mean `\(\Longleftrightarrow\)` `\(\sigma_{\mu}^{2}&gt;0\)`
+
+---
+
+# One-way ANOVA
+
+## F-ratio
+
+### Test-statistic for ANOVA
+
+### The ratio between the between group-variability and within-group variability
+
+### Larger F-ratio `\(\rightarrow\)` larger portion of between-group variability compared to within-group variability
+
+&lt;center&gt;
+`\(\LARGE F_{obt} = \frac{\frac{SS_{between}}{df_{between}}}{\frac{SS_{within}}{df_{within}}} = \frac{MS_{between}}{MS_{within}}\)`
+
+---
+
+# One-way ANOVA
+
+## 'Variance' is the key, and do you remember that SS plays a role in variance?
+
+### Population variance and sample variance
+`\(\LARGE \sigma^2=\frac{\Sigma_{i=1}^{N}(X_i-\mu_{X})^2}{N}\)` and `\(\LARGE s^2=\frac{\Sigma_{i=1}^{n}(X_i-\bar{X})^2}{n-1}\)`
+
+&lt;br&gt;
+
+## Can you find SS and df?
+
+---
+
+# One-way ANOVA
+
+## We 'separate' the between-group variance and within-group variance
+
+### In terms of SS
+
+`\(\LARGE SS_{total}=SS_{between}+SS_{within}\)`
+
+### In terms of df
+
+`\(\LARGE df_{total} = df_{between} + df_{within}\)` &lt;br&gt; `\(\LARGE N-1 = (k-1) + (N-k)\)`
+
+
+---
+
+# One-way ANOVA
+
+## Mean squares `\(\rightarrow\)` What does it look like?!?!
+
+`\(\LARGE MS_{between}=\frac{SS_{between}}{df_{between}}\)`
+
+`\(\LARGE MS_{within}=\frac{SS_{within}}{df_{within}}\)`
+
+## Finally, F-ratio `\(\rightarrow\)` Compare this to the critical F-ratio
+
+`\(\LARGE F_{obt} (df_{between},\:\:df_{within}) = \frac{MS_{between}}{MS_{within}}\)`
+
+---
+
+# One-way ANOVA
+
+## Filling in the table
+
+&lt;center&gt;
+&lt;img src="img/lab9-table1.png" width=2000&gt;
+&lt;/center&gt;
+
+---
+
+# Big picture
+
+&lt;center&gt;
+&lt;img src="img/lab8-bigpic5.png" width=2000&gt;
+&lt;/center&gt;
+
+---
+
+# One-way ANOVA
+
+## Effect size (eta-squared)
+
+### `\(\LARGE \eta^2 = \LARGE \frac{SS_{between}}{SS_{total}}\)`
+
+### Magnitude of the between group effect
+
+### ~~% of the variance in the DV is explained by the IV
+
+### You can also use `\(\omega^2\)` (omega-squared)...
+
+---
+
+# One-way ANOVA
+
+## Between-subjects factor `\(\rightarrow\)` Between-subject ANOVA
+
+### Factor separates groups of **different** individuals
+
+### Each score comes from a different subject
+
+## Example?
+
+### Clinical therapy (behavioral, cognitive, control)
+
+### Place of birth (California, Oregon, Florida, Arizona)
+
+---
+
+# One-way ANOVA
+
+## Within-subjects factor `\(\rightarrow\)` Within-subject ANOVA
+
+### Factors separate multiple measures within the **same** individuals
+
+### Each subject provides scores under multiple conditions/timepoints
+
+## Example?
+
+### Time (measurements at time 1, time 2, and time 3)
+
+### Repeated measurements in general!
+
+---
+
+# Do it together
+
+## Questions about homework 5?
+
+&lt;center&gt;
+&lt;img src="img/kakao-study.png" width=630&gt;
+&lt;/center&gt;
+
+---
+
+# Before you go home...
+
+## Lab materials are available at
+
+### https://github.com/IhnwhiHeo/PSY010
+
+&lt;br&gt;
+
+## Any questions or comments?
+
+### Office hours or my email
+
+---
+
+# Thanks! Have a good one!
+
+&lt;center&gt;
+&lt;img src="img/kakao-week9.png" width=500&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
